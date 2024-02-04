@@ -10,6 +10,10 @@
     align-items: center;
     height: 38px;
 }
+.levels:hover {
+    cursor: pointer;
+    background-color: pink;
+}
 .levels > span {
      font-size: 24px;
  }

@@ -41,17 +41,39 @@ export default function ItemLevelZone() {
         onChange={onChangeSelect}
         components={{
           Input: (props) => (
-            <components.Input {...props} aria-activedescendant={undefined} />
+            <components.Input
+              {...props}
+              aria-activedescendant={undefined}
+              readOnly={true}
+            />
           ),
         }}
         styles={{
-          container: () => ({
+          container: (baseStyles) => ({
+            ...baseStyles,
             position: 'absolute',
             width: '100%',
             zIndex: 1,
+            cursor: 'pointer',
           }),
-          control: () => ({ visibility: 'hidden' }),
-          menu: () => ({ marginTop: '-32px' }),
+          input: (baseStyles) => ({
+            ...baseStyles,
+            '& > input': {
+              cursor: 'pointer',
+            },
+          }),
+          control: (baseStyles) => ({
+            ...baseStyles,
+            visibility: 'hidden',
+            cursor: 'pointer',
+            ':focus': {
+              cursor: 'pointer',
+            },
+          }),
+          // control visibility hidden 과 같이 사용하면 menu 열리지 않는 버그 발생
+          indicatorsContainer: () => ({
+            display: 'none',
+          }),
         }}
       />
       <div className={styles.levels}>
