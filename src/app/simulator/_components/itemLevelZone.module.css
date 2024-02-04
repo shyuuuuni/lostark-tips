@@ -1,0 +1,15 @@
+.itemLevelZone {
+    width: 400px;
+    height: 68px;
+    position: relative;
+}
+.levels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 38px;
+}
+.levels > span {
+     font-size: 24px;
+ }
