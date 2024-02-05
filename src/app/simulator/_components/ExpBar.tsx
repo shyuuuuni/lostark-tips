@@ -35,7 +35,17 @@ export default function ExpBar() {
               style={{
                 width: `100%`,
               }}
-            />
+            >
+              {[...Array(9)].map((_, index) => (
+                <div
+                  key={10 + index * 10}
+                  className={styles.tick}
+                  style={{
+                    left: `${10 + index * 10}%`,
+                  }}
+                />
+              ))}
+            </div>
           </div>
           <p>상급 재련 완료</p>
         </>
@@ -46,7 +56,17 @@ export default function ExpBar() {
             style={{
               width: `${progress}%`,
             }}
-          />
+          >
+            {[...Array(9)].map((_, index) => (
+              <div
+                key={10 + index * 10}
+                className={styles.tick}
+                style={{
+                  left: `${10 + index * 10}%`,
+                }}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

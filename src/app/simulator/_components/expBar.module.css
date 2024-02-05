@@ -4,20 +4,22 @@
     align-items: center;
     max-width: 600px;
     width: 100%;
-    height: 100px;
+    height: 100px
 }
 .container > p {
     font-size: 16px;
 }
 .expBarZone {
+    position: relative;
     width: 100%;
-    height: fit-content;
+    height: fit-content;;
+    border: 2px solid rgb(60, 62, 69);
+    border-radius: 4px;
 }
 .expBar {
     width: 100%;
     height:20px;
     background: linear-gradient(270deg, rgba(240, 127, 69, 1) 10%, rgba(240, 127, 69, 0.8) 45%, rgba(240, 127, 69, 0.8) 90%, rgba(240, 127, 69, 0.6) 100%);
-    border-radius: 2px;
     transition: width 0.5s ease;
 }
 .fillMax {
@@ -26,4 +28,11 @@
     background: rgb(228, 178, 72);
     border-radius: 2px;
     transition: width 0.5s ease, background 0.5s ease;
+}
+.tick {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px; /* 눈금의 너비 */
+    background-color: rgba(0, 0, 0, 0.2); /* 약간 투명한 흰색 눈금 */
 }
