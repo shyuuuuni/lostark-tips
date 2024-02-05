@@ -11,10 +11,13 @@ import Select, { components } from 'react-select';
 
 type LevelSelectOption = { value: BaseLevel; label: string };
 
-const levelSelectOptions: LevelSelectOption[] = baseLevels.map((baseLevel) => ({
-  value: baseLevel,
-  label: `${baseLevel}단계`,
-}));
+const levelSelectOptions: LevelSelectOption[] = baseLevels
+  .filter((baseLevel) => baseLevel < 20)
+  .map((baseLevel) => ({
+    value: baseLevel,
+    label: `${baseLevel}단계`,
+  }));
+
 export default function ItemLevelZone() {
   const [baseLevel, setBaseLevel] = useSimulatorStore((store) => [
     store.baseLevel,
