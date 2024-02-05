@@ -7,6 +7,7 @@ import RefiningButton from '@/app/simulator/_components/RefiningButton';
 import RequireMaterials from '@/app/simulator/_components/RequireMaterials';
 import CostZone from '@/app/simulator/_components/CostZone';
 import AuxiliaryMaterials from '@/app/simulator/_components/AuxiliaryMaterials';
+import PercentZone from '@/app/simulator/_components/PercentZone';
 
 export default function Simulator() {
   return (
@@ -16,12 +17,13 @@ export default function Simulator() {
         <ItemZone />
         <ItemLevelZone />
         <ExpBar />
-        <RefiningButton />
+        <PercentZone />
         <div className={styles.materialZone}>
           <RequireMaterials />
           <AuxiliaryMaterials />
         </div>
         <CostZone />
+        <RefiningButton />
       </div>
     </main>
   );
