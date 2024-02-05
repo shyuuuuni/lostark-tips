@@ -3,7 +3,7 @@ import styles from './page.module.css';
 import ItemZone from '@/app/simulator/_components/ItemZone';
 import ItemLevelZone from '@/app/simulator/_components/ItemLevelZone';
 import ExpBar from '@/app/simulator/_components/ExpBar';
-import AuxiliaryButton from '@/app/simulator/_components/AuxiliaryButton';
+import RefiningButton from '@/app/simulator/_components/RefiningButton';
 
 export default function Simulator() {
   return (
@@ -13,7 +13,7 @@ export default function Simulator() {
         <ItemZone />
         <ItemLevelZone />
         <ExpBar />
-        <AuxiliaryButton />
+        <RefiningButton />
       </div>
     </main>
   );

@@ -4,7 +4,7 @@ import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import { MouseEventHandler } from 'react';
 import { useThrottle } from '@/app/_hooks/useThrottle';
 
-export default function AuxiliaryButton() {
+export default function RefiningButton() {
   const isMaxLevel = useSimulatorStore((store) => store.isMaxLevel);
   const [exp, setExp] = useSimulatorStore((store) => [store.exp, store.setExp]);
 
@@ -21,7 +21,7 @@ export default function AuxiliaryButton() {
   return (
     <>
       <button onClick={throttledOnClick}>상급 재련</button>
-      <button onClick={() => setExp(exp + 1000)}>상급 재련</button>
+      <button onClick={() => setExp(exp + 1000)}>상급 재련(+1000)</button>
     </>
   );
 }
