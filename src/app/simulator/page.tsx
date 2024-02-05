@@ -4,6 +4,7 @@ import ItemZone from '@/app/simulator/_components/ItemZone';
 import ItemLevelZone from '@/app/simulator/_components/ItemLevelZone';
 import ExpBar from '@/app/simulator/_components/ExpBar';
 import RefiningButton from '@/app/simulator/_components/RefiningButton';
+import RequireMaterials from '@/app/simulator/_components/RequireMaterials';
 
 export default function Simulator() {
   return (
@@ -14,6 +15,9 @@ export default function Simulator() {
         <ItemLevelZone />
         <ExpBar />
         <RefiningButton />
+        <div>
+          <RequireMaterials />
+        </div>
       </div>
     </main>
   );
