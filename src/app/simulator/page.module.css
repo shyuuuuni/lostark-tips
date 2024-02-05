@@ -17,3 +17,9 @@
     font-size: 32px;
     margin-top: 64px;
 }
+.materialZone {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
