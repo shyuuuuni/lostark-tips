@@ -1,0 +1,15 @@
+.container {
+    margin-top: 24px;
+    width: 250px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: radial-gradient(circle, rgb(66, 76, 84) 0%, rgb(72, 83, 94) 100%);
+}
+.container:hover {
+    cursor: pointer;
+    opacity: 0.80;
+    transition: opacity 0.5s ease;
+}
