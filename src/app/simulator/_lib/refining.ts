@@ -14,7 +14,7 @@ export type RefiningMaterialTable = {
   [key: string]: RefiningMaterials;
 };
 
-const table: RefiningMaterialTable = {
+const refiningMaterialTable: RefiningMaterialTable = {
   ['weapon-0']: {
     ['정제된 파괴강석']: 1000,
     ['정제된 수호강석']: 0,
@@ -62,7 +62,7 @@ const table: RefiningMaterialTable = {
   },
 };
 
-type RefiningOptions = {
+export type RefiningOptions = {
   nextFree: boolean;
 };
 export const getRefiningMaterials = (
@@ -71,14 +71,29 @@ export const getRefiningMaterials = (
   options?: RefiningOptions,
 ): RefiningMaterials => {
   if (options?.nextFree) {
-    return table['free'];
+    return refiningMaterialTable['free'];
   }
   if (baseLevel < 10) {
-    return table[`${itemType}-0`];
+    return refiningMaterialTable[`${itemType}-0`];
   }
   if (baseLevel <= 20) {
-    return table[`${itemType}-10`];
+    return refiningMaterialTable[`${itemType}-10`];
   }
 
-  return table['free'];
+  return refiningMaterialTable['free'];
+};
+
+export type AuxiliaryMaterial = '태양의 은총' | '태양의 축복' | '태양의 가호';
+export type AuxiliaryMaterials = {
+  [key in AuxiliaryMaterial]: number; // 각 속성은 숫자형 값을 가짐
+};
+
+const auxiliaryMaterialTable: AuxiliaryMaterials = {
+  ['태양의 은총']: 24,
+  ['태양의 축복']: 12,
+  ['태양의 가호']: 4,
+};
+
+export const getAuxiliaryMaterial = () => {
+  return auxiliaryMaterialTable;
 };

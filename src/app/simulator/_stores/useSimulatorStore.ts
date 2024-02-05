@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { AuxiliaryMaterial } from '@/app/simulator/_lib/refining';
+import { immer } from 'zustand/middleware/immer';
 
 export type ItemType = 'weapon' | 'armor';
 
@@ -7,10 +9,15 @@ export const baseLevels = [
 ] as const;
 export type BaseLevel = (typeof baseLevels)[number];
 
+export type UsingAuxiliary = {
+  [key in AuxiliaryMaterial]: boolean;
+};
+
 export type SimulatorState = {
   itemType: ItemType;
   baseLevel: BaseLevel;
   exp: number;
+  usingAuxiliary: UsingAuxiliary;
 };
 
 export type SimulatorAction = {
@@ -19,16 +26,21 @@ export type SimulatorAction = {
   setExp: (exp: number) => void;
   baseLevelUp: () => void;
   isMaxLevel: () => boolean;
+  toggleAuxiliary: (auxiliary: AuxiliaryMaterial) => void;
 };
 
 const defaultState: SimulatorState = {
   itemType: 'weapon',
   baseLevel: 0,
   exp: 0,
+  usingAuxiliary: {
+    ['태양의 축복']: false,
+    ['태양의 은총']: false,
+    ['태양의 가호']: false,
+  },
 };
-
-export const useSimulatorStore = create<SimulatorState & SimulatorAction>(
-  (set, get) => ({
+export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
+  immer((set, get) => ({
     ...defaultState,
     setItemType: (itemType) => set({ itemType }),
     setBaseLevel: (baseLevel) => set({ baseLevel }),
@@ -42,5 +54,9 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>(
             : state.baseLevel,
       })),
     isMaxLevel: () => get().baseLevel === 20,
-  }),
+    toggleAuxiliary: (auxiliary) =>
+      set((state) => {
+        state.usingAuxiliary[auxiliary] = !state.usingAuxiliary[auxiliary];
+      }),
+  })),
 );
