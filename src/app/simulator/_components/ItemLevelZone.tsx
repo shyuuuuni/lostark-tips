@@ -19,6 +19,7 @@ const levelSelectOptions: LevelSelectOption[] = baseLevels
   }));
 
 export default function ItemLevelZone() {
+  const isMaxLevel = useSimulatorStore((store) => store.isMaxLevel);
   const [baseLevel, setBaseLevel] = useSimulatorStore((store) => [
     store.baseLevel,
     store.setBaseLevel,
@@ -80,7 +81,13 @@ export default function ItemLevelZone() {
         }}
       />
       <div className={styles.levels}>
-        <span>{baseLevel}단계</span> {`>>`} <span>{baseLevel + 1}단계</span>
+        {isMaxLevel() ? (
+          <span>{baseLevel}단계</span>
+        ) : (
+          <>
+            <span>{baseLevel}단계</span> {`>>`} <span>{baseLevel + 1}단계</span>
+          </>
+        )}
       </div>
     </div>
   );

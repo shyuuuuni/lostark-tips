@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './expBar.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import clsx from 'clsx';
 
@@ -23,27 +23,31 @@ export default function ExpBar() {
         baseLevelUp();
       }, 800);
     }
-  }, [exp]); // 빈 배열을 전달하여 최초 렌더링시에만 실행
+  }, [isMaxLevel, exp, setExp, baseLevelUp]);
 
   return (
     <div className={styles.container}>
       {isMaxLevel() ? (
         <>
-          <div
-            className={clsx(styles.fillMax)}
-            style={{
-              width: `100%`,
-            }}
-          />
+          <div className={styles.expBarZone}>
+            <div
+              className={clsx(styles.fillMax)}
+              style={{
+                width: `100%`,
+              }}
+            />
+          </div>
           <p>상급 재련 완료</p>
         </>
       ) : (
-        <div
-          className={clsx(styles.expBar, progress === 100 && styles.fillMax)}
-          style={{
-            width: `${progress}%`,
-          }}
-        />
+        <div className={styles.expBarZone}>
+          <div
+            className={clsx(styles.expBar, progress === 100 && styles.fillMax)}
+            style={{
+              width: `${progress}%`,
+            }}
+          />
+        </div>
       )}
     </div>
   );

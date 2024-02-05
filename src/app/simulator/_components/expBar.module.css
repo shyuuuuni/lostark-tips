@@ -9,6 +9,10 @@
 .container > p {
     font-size: 16px;
 }
+.expBarZone {
+    width: 100%;
+    height: fit-content;
+}
 .expBar {
     width: 100%;
     height:20px;
