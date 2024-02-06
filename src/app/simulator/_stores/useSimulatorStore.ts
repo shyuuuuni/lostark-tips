@@ -150,7 +150,7 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
                 additionalExp = 30;
                 ancestorProtectionCount = 5;
                 break;
-              case '테마르의 정':
+              case '테메르의 정':
                 additionalExp = 10;
                 nextIsFree = true;
                 break;
