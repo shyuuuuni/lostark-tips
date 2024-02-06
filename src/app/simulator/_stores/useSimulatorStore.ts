@@ -131,7 +131,8 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
           const percent = getPercent(usingAuxiliary);
 
           // calculate state
-          let baseExp = 10;
+          let baseExp = 10; // 기본 경험치 베이스. 대성공 및 선조의 가호 배수 적용
+          let additionalExp = 0; // 선조의 가호 추가 획득 경험치
           let ancestorProtection: AncestorProtection | null = null;
 
           // 선조의 가호 적용
@@ -146,11 +147,11 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
                 baseExp = baseExp * 3;
                 break;
               case '쿠훔바르의 모루':
-                baseExp = baseExp + 30;
+                additionalExp = 30;
                 ancestorProtectionCount = 5;
                 break;
               case '테마르의 정':
-                baseExp = baseExp + 10;
+                additionalExp = 10;
                 nextIsFree = true;
                 break;
             }
@@ -166,7 +167,7 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
           });
 
           // update state
-          state.exp = exp + expIncrement;
+          state.exp = exp + expIncrement + additionalExp;
           state.isFree = nextIsFree;
           state.ancestorProtectionCount = ((ancestorProtectionCount + 1) %
             7) as AncestorProtectionCount;
@@ -176,7 +177,7 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
             id: uuid(),
             date: dayjs().toDate(),
             expFrom: exp,
-            expTo: exp + expIncrement,
+            expTo: exp + expIncrement + additionalExp,
             itemType,
             baseLevel,
             ancestorProtection,
