@@ -33,7 +33,7 @@ export default function AncestorProtectionZone() {
             재충전
           </div>
           <div>
-            테마르의 정(35%): 상급 재련 경험치 10 추가 증가 및 다음 상급 재련 시
+            테메르의 정(35%): 상급 재련 경험치 10 추가 증가 및 다음 상급 재련 시
             무료
           </div>
         </div>
