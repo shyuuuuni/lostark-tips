@@ -37,7 +37,7 @@ export default function RefiningHistory() {
     <div className={styles.container}>
       <div className={styles.title}>재련 히스토리</div>
       <div className={styles.list}>
-        {histories.toReversed().map((history, i) => (
+        {histories.toReversed().map((history) => (
           <div key={history.id}>{getHistoryComment(history)}</div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export const useThrottle = <Fn extends (...args: Parameters<Fn>) => any>(
+export const useThrottle = <Fn extends (...args: Parameters<Fn>) => unknown>(
   callback: Fn,
   time: number,
 ) => {
