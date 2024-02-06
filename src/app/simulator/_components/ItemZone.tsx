@@ -5,8 +5,8 @@ import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import Image from 'next/image';
 import clsx from 'clsx';
 
-const imageLoader = ({ src }: { src: string }) =>
-  `https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_item/${src}`;
+import weaponPic from '@assets/weapon_01.png';
+import armorPic from '@assets/armor_01.png';
 
 export default function ItemZone() {
   const [itemType, reset] = useSimulatorStore((store) => [
@@ -31,13 +31,7 @@ export default function ItemZone() {
           )}
           onClick={onClickWeapon}
         >
-          <Image
-            src={'gl_item_01_224.png'}
-            loader={imageLoader}
-            alt={'상위 고대 무기 이미지'}
-            width={64}
-            height={64}
-          />
+          <Image src={weaponPic} alt={'상위 고대 무기 이미지'} />
         </div>
         <div
           className={clsx(
@@ -46,13 +40,7 @@ export default function ItemZone() {
           )}
           onClick={onClickArmor}
         >
-          <Image
-            src={'gl_item_01_222.png'}
-            loader={imageLoader}
-            alt={'상위 고대 방어구 이미지'}
-            width={64}
-            height={64}
-          />
+          <Image src={armorPic} alt={'상위 고대 방어구 이미지'} />
         </div>
       </div>
       <div className={styles.itemTypeName}>

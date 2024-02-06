@@ -1,19 +1,47 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 36px;
-    width: 724px;
-    height: 250px;
+@media screen and (min-width: 769px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 36px;
+        width: 724px;
+        height: 250px;
+    }
+    .title {
+        height: 24px;
+        font-size: 20px;
+    }
+    .list {
+        margin-top: 4px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        overflow-y: scroll;
+    }
 }
-.title {
-    height: 24px;
-    font-size: 20px;
-}
-.list {
-    margin-top: 4px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    overflow-y: scroll;
+
+@media screen and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 24px;
+        width: 100%;
+        height: 350px;
+    }
+    .title {
+        margin: 0 0 0 8px;
+        font-size: 16px;
+    }
+    .list {
+        margin-top: 4px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        overflow-y: scroll;
+        font-size: 12px;
+    }
+    .list > div {
+        margin: 0 8px 0 8px;
+    }
 }

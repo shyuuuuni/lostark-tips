@@ -31,7 +31,7 @@ export default function ExpBar() {
         <>
           <div className={styles.expBarZone}>
             <div
-              className={clsx(styles.fillMax)}
+              className={clsx(styles.expBar, styles.fillMax)}
               style={{
                 width: `100%`,
               }}
