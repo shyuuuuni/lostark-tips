@@ -46,7 +46,7 @@ export default function AuxiliaryMaterials() {
   return (
     <div className={styles.container}>
       <div className={styles.control}>
-        <p>필요 재료</p>
+        <p>추가 재료</p>
         <div onClick={onClickAll}>모두 선택</div>
       </div>
       <div className={styles.materialsZone}>

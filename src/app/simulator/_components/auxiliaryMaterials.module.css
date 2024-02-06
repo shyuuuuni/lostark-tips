@@ -76,6 +76,7 @@
     .control > div {
         font-size: 12px;
         padding: 4px;
+        margin: 0 8px 0 0;
         color: white;
         background: radial-gradient(circle, rgb(66, 76, 84) 0%, rgb(72, 83, 94) 100%);
         /* 버튼 더블 클릭 시 드래그 방지*/

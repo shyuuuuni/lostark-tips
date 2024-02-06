@@ -1,5 +1,4 @@
 @media screen and (min-width: 769px) {
-
     .container {
         width: 600px;
         height: 128px;
@@ -9,6 +8,11 @@
     }
     .label {
         font-size: 20px;
+        border-bottom: 1px solid black;
+    }
+    .label:hover {
+        font-weight: bold;
+        cursor: pointer;
     }
     .ancestorProtectionList {
         margin-top: 8px;
@@ -49,6 +53,11 @@
     }
     .label {
         font-size: 16px;
+        border-bottom: 1px solid black;
+    }
+    .label:hover {
+        font-weight: bold;
+        cursor: pointer;
     }
     .ancestorProtectionList {
         margin-top: 8px;
@@ -78,5 +87,8 @@
         margin-top: 8px;
         font-size: 12px;
         word-wrap: break-word;
+    }
+    .tooltip {
+        max-width: 350px;
     }
 }
