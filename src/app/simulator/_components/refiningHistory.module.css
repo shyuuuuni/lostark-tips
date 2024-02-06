@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 36px;
+    width: 724px;
+    height: 250px;
+}
+.title {
+    height: 24px;
+    font-size: 20px;
+}
+.list {
+    margin-top: 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: scroll;
+}

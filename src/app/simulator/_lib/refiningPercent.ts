@@ -1,6 +1,6 @@
 import { UsingAuxiliary } from '@/app/simulator/_stores/useSimulatorStore';
 
-type RefiningType = '성공' | '대성공' | '대성공x2';
+export type RefiningType = '성공' | '대성공' | '대성공x2' | '실패';
 
 export type RefiningPercent = {
   [key in RefiningType]: number;
@@ -9,6 +9,7 @@ export const basePercent: RefiningPercent = {
   성공: 80,
   대성공: 15,
   대성공x2: 5,
+  실패: 0,
 };
 export const getPercent = (auxiliary: UsingAuxiliary): RefiningPercent => {
   const percent = { ...basePercent };
@@ -28,16 +29,17 @@ type ExpIncrement = {
   [key in RefiningType]: number;
 };
 
-const expIncrement: ExpIncrement = {
+export const expIncrement: ExpIncrement = {
   성공: 1,
   대성공: 2,
   대성공x2: 4,
+  실패: 0,
 };
 
 export const getExpIncrement = (
   baseExp: number = 10,
   percent: RefiningPercent,
-): [type: RefiningType | '실패', expIncrement: number] => {
+): [type: RefiningType, expIncrement: number] => {
   const random = Math.floor(Math.random() * 100);
 
   let pivot = 0;

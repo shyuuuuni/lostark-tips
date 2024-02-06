@@ -1,13 +1,27 @@
-export type AncestorProtection = 'Galatur' | 'Galar' | 'Kuhumbar' | 'Temer'; // 겔라르와 테메르는 공식 번역 필요
+export type AncestorProtection =
+  | '갈라투르의 망치'
+  | '겔라르의 칼'
+  | '쿠훔바르의 모루'
+  | '테마르의 정';
 export type AncestorProtectionPercent = {
   [key in AncestorProtection]: number;
 };
+export type AncestorProtectionInfo = {
+  [key in AncestorProtection]: string;
+};
+
+export const ancesterProtectionInfo: AncestorProtectionInfo = {
+  ['갈라투르의 망치']: '상급 재련 경험치 5배 증가',
+  ['겔라르의 칼']: '상급 재련 경험치 3배 증가',
+  ['쿠훔바르의 모루']: '상급 재련 경험치 30 추가 증가 및 선조의 가호 재충전',
+  ['테마르의 정']: '상급 재련 경험치 10 추가 증가 및 다음 상급 재련 시 무료',
+};
 
 const defaultPercent: AncestorProtectionPercent = {
-  Galatur: 15,
-  Galar: 35,
-  Kuhumbar: 15,
-  Temer: 35,
+  ['갈라투르의 망치']: 15,
+  ['겔라르의 칼']: 35,
+  ['쿠훔바르의 모루']: 15,
+  ['테마르의 정']: 35,
 };
 
 export const getAncestorProtection = (
@@ -26,5 +40,5 @@ export const getAncestorProtection = (
   }
 
   // default
-  return 'Galar';
+  return '겔라르의 칼';
 };

@@ -9,7 +9,10 @@ import {
 import {
   getExpIncrement,
   getPercent,
+  RefiningType,
 } from '@/app/simulator/_lib/refiningPercent';
+import dayjs from 'dayjs';
+import { v1 as uuid } from 'uuid';
 
 export type ItemType = 'weapon' | 'armor';
 
@@ -24,6 +27,19 @@ export type UsingAuxiliary = {
 
 export type AncestorProtectionCount = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
+export type SimulateHistory = {
+  id: string;
+  date: Date;
+  expFrom: number;
+  expTo: number;
+  itemType: ItemType;
+  baseLevel: BaseLevel;
+  ancestorProtection: AncestorProtection | null;
+  refiningType: RefiningType;
+  usingAuxiliary: UsingAuxiliary;
+  isFree: boolean;
+};
+
 export type SimulatorState = {
   itemType: ItemType;
   baseLevel: BaseLevel;
@@ -31,6 +47,7 @@ export type SimulatorState = {
   usingAuxiliary: UsingAuxiliary;
   ancestorProtectionCount: number;
   isFree: boolean;
+  history: SimulateHistory[];
 };
 
 export type SimulatorAction = {
@@ -54,6 +71,7 @@ const defaultState: SimulatorState = {
   },
   ancestorProtectionCount: 0,
   isFree: false,
+  history: [],
 };
 export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
   devtools(
@@ -80,14 +98,11 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
           if (state.isMaxLevel()) {
             return;
           }
-          if (state.isFree) {
-            state.isFree = false;
-          }
 
           // load state
-          const { exp, usingAuxiliary } = state;
+          const { itemType, baseLevel, exp, usingAuxiliary, isFree } = state;
           let { ancestorProtectionCount } = state;
-          let isFree = false;
+          let nextIsFree = false;
 
           const percent = getPercent(usingAuxiliary);
 
@@ -100,37 +115,51 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
             ancestorProtection = getAncestorProtection();
 
             switch (ancestorProtection) {
-              case 'Galatur':
+              case '갈라투르의 망치':
                 baseExp = baseExp * 5;
                 break;
-              case 'Galar':
+              case '겔라르의 칼':
                 baseExp = baseExp * 3;
                 break;
-              case 'Kuhumbar':
+              case '쿠훔바르의 모루':
                 baseExp = baseExp + 30;
                 ancestorProtectionCount = 5;
                 break;
-              case 'Temer':
+              case '테마르의 정':
                 baseExp = baseExp + 10;
-                isFree = true;
+                nextIsFree = true;
                 break;
             }
           }
 
-          const [incrementType, expIncrement] = getExpIncrement(
+          const [refiningType, expIncrement] = getExpIncrement(
             baseExp,
             percent,
           );
 
           // update state
           state.exp = exp + expIncrement;
-          state.isFree = isFree;
+          state.isFree = nextIsFree;
           if (ancestorProtectionCount === 6) {
             state.ancestorProtectionCount = 1;
           } else {
             state.ancestorProtectionCount = (ancestorProtectionCount +
               1) as AncestorProtectionCount;
           }
+
+          // log
+          state.history.push({
+            id: uuid(),
+            date: dayjs().toDate(),
+            expFrom: exp,
+            expTo: exp + expIncrement,
+            itemType,
+            baseLevel,
+            ancestorProtection,
+            refiningType,
+            usingAuxiliary,
+            isFree,
+          });
         }),
     })),
   ),
