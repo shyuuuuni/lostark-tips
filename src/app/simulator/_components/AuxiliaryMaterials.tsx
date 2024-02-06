@@ -25,10 +25,30 @@ export default function AuxiliaryMaterials() {
   const onClickAuxiliary = (auxiliary: AuxiliaryMaterial) => () => {
     toggleAuxiliary(auxiliary);
   };
+  const onClickAll = () => {
+    const notUsed: AuxiliaryMaterial[] = [];
+
+    for (const [auxiliary, isUsed] of Object.entries(usingAuxiliary)) {
+      if (!isUsed) {
+        notUsed.push(auxiliary as AuxiliaryMaterial);
+      }
+    }
+
+    if (notUsed.length === 0 || notUsed.length === 3) {
+      toggleAuxiliary('태양의 은총');
+      toggleAuxiliary('태양의 축복');
+      toggleAuxiliary('태양의 가호');
+    } else {
+      notUsed.forEach((auxiliary) => toggleAuxiliary(auxiliary));
+    }
+  };
 
   return (
     <div className={styles.container}>
-      <p>필요 재료</p>
+      <div className={styles.control}>
+        <p>필요 재료</p>
+        <div onClick={onClickAll}>모두 선택</div>
+      </div>
       <div className={styles.materialsZone}>
         <div
           className={styles.material}

@@ -4,9 +4,31 @@
     width: 350px;
     height: 150px;
 }
-.container > p {
+.control {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.control > p {
     margin: 0;
     font-size: 20px;
+}
+.control > div {
+    font-size: 12px;
+    padding: 4px;
+    color: white;
+    background: radial-gradient(circle, rgb(66, 76, 84) 0%, rgb(72, 83, 94) 100%);
+    /* 버튼 더블 클릭 시 드래그 방지*/
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+.control > div:hover {
+    cursor: pointer;
+    opacity: 0.80;
+    transition: opacity 0.5s ease;
 }
 .materialsZone {
     width: fit-content;
