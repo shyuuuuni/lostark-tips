@@ -4,9 +4,9 @@ import styles from './costZone.module.css';
 import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import { getRefiningMaterials } from '@/app/simulator/_lib/materials';
 import Image from 'next/image';
-
-const imageLoader = ({ src }: { src: string }) =>
-  `https://lostarkcodex.com/icons/${src}`;
+import material05Pic from '@assets/material_05.webp';
+import material06Pic from '@assets/material_06.webp';
+import material07Pic from '@assets/material_07.webp';
 
 export default function CostZone() {
   const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(
@@ -25,33 +25,15 @@ export default function CostZone() {
       <div className={styles.costZone}>
         <span className={styles.cost}>
           {materials['명예의 파편']} ({accumulatedCost['명예의 파편']})
-          <Image
-            loader={imageLoader}
-            src={'money_13.webp'}
-            alt={'명예의 파편'}
-            width={24}
-            height={24}
-          />
+          <Image src={material05Pic} alt={'명예의 파편'} />
         </span>
         <span className={styles.cost}>
           {materials['실링']} ({accumulatedCost['실링']})
-          <Image
-            loader={imageLoader}
-            src={'etc_14.webp'}
-            alt={'실링'}
-            width={24}
-            height={24}
-          />
+          <Image src={material06Pic} alt={'실링'} />
         </span>
         <span className={styles.cost}>
           {materials['골드']} ({accumulatedCost['골드']})
-          <Image
-            loader={imageLoader}
-            src={'money_4.webp'}
-            alt={'골드'}
-            width={24}
-            height={24}
-          />
+          <Image src={material07Pic} alt={'골드'} />
         </span>
       </div>
     </div>

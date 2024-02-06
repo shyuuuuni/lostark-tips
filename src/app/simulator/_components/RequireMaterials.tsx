@@ -5,8 +5,10 @@ import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import { getRefiningMaterials } from '@/app/simulator/_lib/materials';
 import Image from 'next/image';
 
-const imageLoader = ({ src }: { src: string }) =>
-  `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;
+import material01Pic from '@assets/material_01.png';
+import material02Pic from '@assets/material_02.png';
+import material03Pic from '@assets/material_03.png';
+import material04Pic from '@assets/material_04.png';
 
 export default function RequireMaterials() {
   const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(
@@ -28,13 +30,7 @@ export default function RequireMaterials() {
         {itemType === 'weapon' && (
           <div className={styles.material}>
             <div>
-              <Image
-                loader={imageLoader}
-                src={'use_11_15.png'}
-                width={64}
-                height={64}
-                alt={'정제된 파괴강석'}
-              />
+              <Image src={material01Pic} alt={'정제된 파괴강석'} />
             </div>
             <div>{materials['정제된 파괴강석']}</div>
             <div>({accumulatedCost['정제된 파괴강석']})</div>
@@ -43,13 +39,7 @@ export default function RequireMaterials() {
         {itemType === 'armor' && (
           <div className={styles.material}>
             <div>
-              <Image
-                loader={imageLoader}
-                src={'use_11_16.png'}
-                width={64}
-                height={64}
-                alt={'정제된 수호강석'}
-              />
+              <Image src={material02Pic} alt={'정제된 수호강석'} />
             </div>
             <div>{materials['정제된 수호강석']}</div>
             <div>({accumulatedCost['정제된 수호강석']})</div>
@@ -57,26 +47,14 @@ export default function RequireMaterials() {
         )}
         <div className={styles.material}>
           <div>
-            <Image
-              loader={imageLoader}
-              src={'use_11_17.png'}
-              width={64}
-              height={64}
-              alt={'찬란한 명예의 돌파석'}
-            />
+            <Image src={material03Pic} alt={'찬란한 명예의 돌파석'} />
           </div>
           <div>{materials['찬란한 명예의 돌파석']}</div>
           <div>({accumulatedCost['찬란한 명예의 돌파석']})</div>
         </div>
         <div className={styles.material}>
           <div>
-            <Image
-              loader={imageLoader}
-              src={'use_11_29.png'}
-              width={64}
-              height={64}
-              alt={'최상급 오레하 융화재료'}
-            />
+            <Image src={material04Pic} alt={'최상급 오레하 융화재료'} />
           </div>
           <div>{materials['최상급 오레하 융화재료']}</div>
           <div>({accumulatedCost['최상급 오레하 융화재료']})</div>
