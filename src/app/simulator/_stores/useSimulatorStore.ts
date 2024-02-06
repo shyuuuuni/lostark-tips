@@ -168,12 +168,8 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
           // update state
           state.exp = exp + expIncrement;
           state.isFree = nextIsFree;
-          if (ancestorProtectionCount === 6) {
-            state.ancestorProtectionCount = 1;
-          } else {
-            state.ancestorProtectionCount = (ancestorProtectionCount +
-              1) as AncestorProtectionCount;
-          }
+          state.ancestorProtectionCount = ((ancestorProtectionCount + 1) %
+            7) as AncestorProtectionCount;
 
           // log
           state.history.push({
