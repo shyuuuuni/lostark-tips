@@ -13,10 +13,13 @@ const imageLoader = ({ src }: { src: string }) =>
   `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;
 
 export default function AuxiliaryMaterials() {
-  const [usingAuxiliary, toggleAuxiliary] = useSimulatorStore((store) => [
-    store.usingAuxiliary,
-    store.toggleAuxiliary,
-  ]);
+  const [usingAuxiliary, toggleAuxiliary, accumulatedCost] = useSimulatorStore(
+    (store) => [
+      store.usingAuxiliary,
+      store.toggleAuxiliary,
+      store.accumulatedCost,
+    ],
+  );
   const materials = getAuxiliaryMaterial();
 
   const onClickAuxiliary = (auxiliary: AuxiliaryMaterial) => () => {
@@ -43,8 +46,12 @@ export default function AuxiliaryMaterials() {
           <div
             className={clsx(usingAuxiliary['태양의 은총'] && styles.selected)}
           >
-            9999 /{' '}
             {usingAuxiliary['태양의 은총'] ? materials['태양의 은총'] : 0}
+          </div>
+          <div
+            className={clsx(usingAuxiliary['태양의 은총'] && styles.selected)}
+          >
+            ({accumulatedCost['태양의 은총']})
           </div>
         </div>
         <div
@@ -63,8 +70,12 @@ export default function AuxiliaryMaterials() {
           <div
             className={clsx(usingAuxiliary['태양의 축복'] && styles.selected)}
           >
-            9999 /{' '}
             {usingAuxiliary['태양의 축복'] ? materials['태양의 축복'] : 0}
+          </div>
+          <div
+            className={clsx(usingAuxiliary['태양의 축복'] && styles.selected)}
+          >
+            ({accumulatedCost['태양의 축복']})
           </div>
         </div>
         <div
@@ -83,8 +94,12 @@ export default function AuxiliaryMaterials() {
           <div
             className={clsx(usingAuxiliary['태양의 가호'] && styles.selected)}
           >
-            9999 /{' '}
             {usingAuxiliary['태양의 가호'] ? materials['태양의 가호'] : 0}
+          </div>
+          <div
+            className={clsx(usingAuxiliary['태양의 가호'] && styles.selected)}
+          >
+            ({accumulatedCost['태양의 가호']})
           </div>
         </div>
       </div>

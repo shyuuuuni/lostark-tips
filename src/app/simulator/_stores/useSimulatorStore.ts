@@ -1,5 +1,12 @@
 import { create } from 'zustand';
-import { AuxiliaryMaterial } from '@/app/simulator/_lib/materials';
+import {
+  AuxiliaryMaterial,
+  Cost,
+  getAuxiliaryMaterial,
+  getRefiningMaterials,
+  Material,
+  RefiningMaterials,
+} from '@/app/simulator/_lib/materials';
 import { immer } from 'zustand/middleware/immer';
 import { devtools } from 'zustand/middleware';
 import {
@@ -48,6 +55,9 @@ export type SimulatorState = {
   ancestorProtectionCount: number;
   isFree: boolean;
   history: SimulateHistory[];
+  accumulatedCost: RefiningMaterials & {
+    [key in AuxiliaryMaterial]: number;
+  } & { trials: number };
 };
 
 export type SimulatorAction = {
@@ -72,6 +82,19 @@ const defaultState: SimulatorState = {
   ancestorProtectionCount: 0,
   isFree: false,
   history: [],
+  accumulatedCost: {
+    trials: 0,
+    ['정제된 파괴강석']: 0,
+    ['정제된 수호강석']: 0,
+    ['찬란한 명예의 돌파석']: 0,
+    ['최상급 오레하 융화재료']: 0,
+    ['골드']: 0,
+    ['실링']: 0,
+    ['명예의 파편']: 0,
+    ['태양의 축복']: 0,
+    ['태양의 은총']: 0,
+    ['태양의 가호']: 0,
+  },
 };
 export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
   devtools(
@@ -137,6 +160,10 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
             percent,
           );
 
+          const refiningMaterials = getRefiningMaterials(itemType, baseLevel, {
+            isFree,
+          });
+
           // update state
           state.exp = exp + expIncrement;
           state.isFree = nextIsFree;
@@ -160,6 +187,15 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
             usingAuxiliary,
             isFree,
           });
+          for (const [material, count] of Object.entries(refiningMaterials)) {
+            state.accumulatedCost[material as Material | Cost] += count;
+          }
+          for (const [auxiliary, isUsed] of Object.entries(usingAuxiliary)) {
+            if (isUsed) {
+              state.accumulatedCost[auxiliary as AuxiliaryMaterial] +=
+                getAuxiliaryMaterial()[auxiliary as AuxiliaryMaterial];
+            }
+          }
         }),
     })),
   ),

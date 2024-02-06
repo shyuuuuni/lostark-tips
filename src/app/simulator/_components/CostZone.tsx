@@ -9,11 +9,14 @@ const imageLoader = ({ src }: { src: string }) =>
   `https://lostarkcodex.com/icons/${src}`;
 
 export default function CostZone() {
-  const [itemType, baseLevel, isFree] = useSimulatorStore((store) => [
-    store.itemType,
-    store.baseLevel,
-    store.isFree,
-  ]);
+  const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(
+    (store) => [
+      store.itemType,
+      store.baseLevel,
+      store.isFree,
+      store.accumulatedCost,
+    ],
+  );
   const materials = getRefiningMaterials(itemType, baseLevel, { isFree });
 
   return (
@@ -21,7 +24,7 @@ export default function CostZone() {
       <p>재련 비용</p>
       <div className={styles.costZone}>
         <span className={styles.cost}>
-          {materials['명예의 파편']}
+          {materials['명예의 파편']} ({accumulatedCost['명예의 파편']})
           <Image
             loader={imageLoader}
             src={'money_13.webp'}
@@ -31,7 +34,7 @@ export default function CostZone() {
           />
         </span>
         <span className={styles.cost}>
-          {materials['실링']}
+          {materials['실링']} ({accumulatedCost['실링']})
           <Image
             loader={imageLoader}
             src={'etc_14.webp'}
@@ -41,7 +44,7 @@ export default function CostZone() {
           />
         </span>
         <span className={styles.cost}>
-          {materials['골드']}
+          {materials['골드']} ({accumulatedCost['골드']})
           <Image
             loader={imageLoader}
             src={'money_4.webp'}

@@ -9,11 +9,14 @@ const imageLoader = ({ src }: { src: string }) =>
   `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;
 
 export default function RequireMaterials() {
-  const [itemType, baseLevel, isFree] = useSimulatorStore((store) => [
-    store.itemType,
-    store.baseLevel,
-    store.isFree,
-  ]);
+  const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(
+    (store) => [
+      store.itemType,
+      store.baseLevel,
+      store.isFree,
+      store.accumulatedCost,
+    ],
+  );
   const materials = getRefiningMaterials(itemType, baseLevel, {
     isFree,
   });
@@ -33,7 +36,8 @@ export default function RequireMaterials() {
                 alt={'정제된 파괴강석'}
               />
             </div>
-            <div>9999 / {materials['정제된 파괴강석']}</div>
+            <div>{materials['정제된 파괴강석']}</div>
+            <div>({accumulatedCost['정제된 파괴강석']})</div>
           </div>
         )}
         {itemType === 'armor' && (
@@ -47,7 +51,8 @@ export default function RequireMaterials() {
                 alt={'정제된 수호강석'}
               />
             </div>
-            <div>9999 / {materials['정제된 수호강석']}</div>
+            <div>{materials['정제된 수호강석']}</div>
+            <div>({accumulatedCost['정제된 수호강석']})</div>
           </div>
         )}
         <div className={styles.material}>
@@ -60,7 +65,8 @@ export default function RequireMaterials() {
               alt={'찬란한 명예의 돌파석'}
             />
           </div>
-          <div>9999 / {materials['찬란한 명예의 돌파석']}</div>
+          <div>{materials['찬란한 명예의 돌파석']}</div>
+          <div>({accumulatedCost['찬란한 명예의 돌파석']})</div>
         </div>
         <div className={styles.material}>
           <div>
@@ -72,7 +78,8 @@ export default function RequireMaterials() {
               alt={'최상급 오레하 융화재료'}
             />
           </div>
-          <div>9999 / {materials['최상급 오레하 융화재료']}</div>
+          <div>{materials['최상급 오레하 융화재료']}</div>
+          <div>({accumulatedCost['최상급 오레하 융화재료']})</div>
         </div>
       </div>
     </div>
