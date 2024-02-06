@@ -5,7 +5,7 @@ import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import {
   AuxiliaryMaterial,
   getAuxiliaryMaterial,
-} from '@/app/simulator/_lib/refining';
+} from '@/app/simulator/_lib/materials';
 import Image from 'next/image';
 import clsx from 'clsx';
 

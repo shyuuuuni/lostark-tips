@@ -2,18 +2,19 @@
 
 import styles from './costZone.module.css';
 import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
-import { getRefiningMaterials } from '@/app/simulator/_lib/refining';
+import { getRefiningMaterials } from '@/app/simulator/_lib/materials';
 import Image from 'next/image';
 
 const imageLoader = ({ src }: { src: string }) =>
   `https://lostarkcodex.com/icons/${src}`;
 
 export default function CostZone() {
-  const [itemType, baseLevel] = useSimulatorStore((store) => [
+  const [itemType, baseLevel, isFree] = useSimulatorStore((store) => [
     store.itemType,
     store.baseLevel,
+    store.isFree,
   ]);
-  const materials = getRefiningMaterials(itemType, baseLevel);
+  const materials = getRefiningMaterials(itemType, baseLevel, { isFree });
 
   return (
     <div className={styles.container}>

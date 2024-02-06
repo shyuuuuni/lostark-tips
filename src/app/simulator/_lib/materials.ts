@@ -63,14 +63,14 @@ const refiningMaterialTable: RefiningMaterialTable = {
 };
 
 export type RefiningOptions = {
-  nextFree: boolean;
+  isFree: boolean;
 };
 export const getRefiningMaterials = (
   itemType: ItemType,
   baseLevel: BaseLevel,
   options?: RefiningOptions,
 ): RefiningMaterials => {
-  if (options?.nextFree) {
+  if (options?.isFree) {
     return refiningMaterialTable['free'];
   }
   if (baseLevel < 10) {
