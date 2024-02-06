@@ -8,6 +8,7 @@ import RequireMaterials from '@/app/simulator/_components/RequireMaterials';
 import CostZone from '@/app/simulator/_components/CostZone';
 import AuxiliaryMaterials from '@/app/simulator/_components/AuxiliaryMaterials';
 import PercentZone from '@/app/simulator/_components/PercentZone';
+import AncestorProtectionZone from '@/app/simulator/_components/AncestorProtectionZone';
 
 export default function Simulator() {
   return (
@@ -17,6 +18,7 @@ export default function Simulator() {
         <ItemZone />
         <ItemLevelZone />
         <ExpBar />
+        <AncestorProtectionZone />
         <PercentZone />
         <div className={styles.materialZone}>
           <RequireMaterials />
