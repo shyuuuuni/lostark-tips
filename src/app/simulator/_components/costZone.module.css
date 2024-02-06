@@ -1,0 +1,25 @@
+.container {
+    align-items: center;
+    display: flex;
+    width: 724px;
+    height: 50px;
+}
+.container > p {
+    margin: 0;
+    flex: 1;
+    font-size: 20px;
+}
+.costZone {
+    display: flex;
+    flex: 4;
+    justify-content: space-between;
+    margin-right: 24px;
+}
+.cost {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 150%;
+}
