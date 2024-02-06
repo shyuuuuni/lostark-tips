@@ -29,7 +29,8 @@
     background: linear-gradient(135deg, #3f3412, #dccc99);
 }
 .selected {
-    box-shadow: 0 0 15px 8px rgba(255, 255, 0, 0.8); /* 투명한 노란색 빛 효과 */;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 8px rgba(216, 73, 11, 0.8); /* 투명한 노란색 빛 효과 */;
 }
 .itemTypeName {
     display: flex;

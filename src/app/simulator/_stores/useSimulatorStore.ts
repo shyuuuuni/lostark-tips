@@ -68,6 +68,7 @@ export type SimulatorAction = {
   isMaxLevel: () => boolean;
   toggleAuxiliary: (auxiliary: AuxiliaryMaterial) => void;
   refine: () => void;
+  reset: (itemType?: ItemType) => void;
 };
 
 const defaultState: SimulatorState = {
@@ -196,6 +197,11 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
                 getAuxiliaryMaterial()[auxiliary as AuxiliaryMaterial];
             }
           }
+        }),
+      reset: (itemType) =>
+        set((state) => {
+          const _itemType = itemType ?? state.itemType;
+          return { ...state, ...defaultState, itemType: _itemType };
         }),
     })),
   ),

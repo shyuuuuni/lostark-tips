@@ -9,10 +9,17 @@ const imageLoader = ({ src }: { src: string }) =>
   `https://cdn-lostark.game.onstove.com/efui_iconatlas/gl_item/${src}`;
 
 export default function ItemZone() {
-  const [itemType, setItemType] = useSimulatorStore((store) => [
+  const [itemType, reset] = useSimulatorStore((store) => [
     store.itemType,
-    store.setItemType,
+    store.reset,
   ]);
+
+  const onClickWeapon = () => {
+    reset('weapon');
+  };
+  const onClickArmor = () => {
+    reset('armor');
+  };
 
   return (
     <div className={styles.container}>
@@ -22,7 +29,7 @@ export default function ItemZone() {
             styles.itemButton,
             itemType === 'weapon' && styles.selected,
           )}
-          onClick={() => setItemType('weapon')}
+          onClick={onClickWeapon}
         >
           <Image
             src={'gl_item_01_224.png'}
@@ -37,7 +44,7 @@ export default function ItemZone() {
             styles.itemButton,
             itemType === 'armor' && styles.selected,
           )}
-          onClick={() => setItemType('armor')}
+          onClick={onClickArmor}
         >
           <Image
             src={'gl_item_01_222.png'}

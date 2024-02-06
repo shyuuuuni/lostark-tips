@@ -2,22 +2,31 @@
 
 import styles from './refiningButton.module.css';
 
-import { MouseEventHandler, useEffect } from 'react';
+import { MouseEventHandler } from 'react';
 import { useThrottle } from '@/app/_hooks/useThrottle';
 import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 
 export default function RefiningButton() {
-  const refine = useSimulatorStore((store) => store.refine);
-  const a = useSimulatorStore((store) => store.ancestorProtectionCount);
+  const [refine, reset] = useSimulatorStore((store) => [
+    store.refine,
+    store.reset,
+  ]);
 
-  const onClick: MouseEventHandler<HTMLDivElement> = useThrottle(() => {
+  const onClickRefine: MouseEventHandler<HTMLDivElement> = useThrottle(() => {
     refine();
   }, 500 + 50);
 
+  const onClickReset = () => {
+    reset();
+  };
+
   return (
-    <div>
-      <div className={styles.container} onClick={onClick}>
+    <div className={styles.container}>
+      <div className={styles.refine} onClick={onClickRefine}>
         상급 재련
+      </div>
+      <div className={styles.reset} onClick={onClickReset}>
+        다시하기
       </div>
     </div>
   );
