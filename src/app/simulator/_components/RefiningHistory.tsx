@@ -9,7 +9,7 @@ import {
 import dayjs from 'dayjs';
 import { expIncrement } from '@/app/simulator/_lib/refiningPercent';
 import { josa } from '@toss/hangul';
-import { ancesterProtectionInfo } from '@/app/simulator/_lib/ancestorProtection';
+import { ancestorProtectionInfo } from '@/app/simulator/_lib/ancestorProtection';
 
 const getHistoryComment = (history: SimulateHistory): string => {
   const date = `[${dayjs(history.date).format('HH:mm:ss')}]`;
@@ -21,7 +21,7 @@ const getHistoryComment = (history: SimulateHistory): string => {
 
   let ancestorProtectionComment = '';
   if (history.ancestorProtection !== null) {
-    ancestorProtectionComment += `선조의 가호 효과로 ${josa(history.ancestorProtection, '이/가')} 적용되었습니다. ${ancesterProtectionInfo[history.ancestorProtection]}!`;
+    ancestorProtectionComment += `선조의 가호 효과로 ${josa(history.ancestorProtection, '이/가')} 적용되었습니다. ${ancestorProtectionInfo[history.ancestorProtection]}!`;
   }
 
   const nextLevel = history.baseLevel + Math.floor(history.expTo / 100);
