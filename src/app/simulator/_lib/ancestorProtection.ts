@@ -10,7 +10,7 @@ export type AncestorProtectionInfo = {
   [key in AncestorProtection]: string;
 };
 
-export const ancesterProtectionInfo: AncestorProtectionInfo = {
+export const ancestorProtectionInfo: AncestorProtectionInfo = {
   ['갈라투르의 망치']: '상급 재련 경험치 5배 증가',
   ['겔라르의 칼']: '상급 재련 경험치 3배 증가',
   ['쿠훔바르의 모루']: '상급 재련 경험치 30 추가 증가 및 선조의 가호 재충전',
