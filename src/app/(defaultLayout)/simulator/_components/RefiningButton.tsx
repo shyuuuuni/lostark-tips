@@ -4,7 +4,7 @@ import styles from './refiningButton.module.css';
 
 import { MouseEventHandler } from 'react';
 import { useThrottle } from '@/app/_hooks/useThrottle';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function RefiningButton() {
   const [refine, reset] = useSimulatorStore((store) => [

@@ -2,14 +2,14 @@
 
 import styles from './refiningHistory.module.css';
 
+import dayjs from 'dayjs';
+import { josa } from '@toss/hangul';
 import {
   SimulateHistory,
   useSimulatorStore,
-} from '@/app/simulator/_stores/useSimulatorStore';
-import dayjs from 'dayjs';
-import { expIncrement } from '@/app/simulator/_lib/refiningPercent';
-import { josa } from '@toss/hangul';
-import { ancestorProtectionInfo } from '@/app/simulator/_lib/ancestorProtection';
+} from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { ancestorProtectionInfo } from '@/app/(defaultLayout)/simulator/_lib/ancestorProtection';
+import { expIncrement } from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
 
 const getHistoryComment = (history: SimulateHistory): string => {
   const date = `[${dayjs(history.date).format('HH:mm:ss')}]`;

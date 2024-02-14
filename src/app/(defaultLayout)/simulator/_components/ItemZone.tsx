@@ -1,12 +1,12 @@
 'use client';
 
 import styles from './ItemZone.module.css';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import Image from 'next/image';
 import clsx from 'clsx';
 
 import weaponPic from '@assets/weapon_01.png';
 import armorPic from '@assets/armor_01.png';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function ItemZone() {
   const [itemType, reset] = useSimulatorStore((store) => [

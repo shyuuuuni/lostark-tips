@@ -1,4 +1,4 @@
-import { UsingAuxiliary } from '@/app/simulator/_stores/useSimulatorStore';
+import { UsingAuxiliary } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export type RefiningType = '성공' | '대성공' | '대성공x2' | '실패';
 

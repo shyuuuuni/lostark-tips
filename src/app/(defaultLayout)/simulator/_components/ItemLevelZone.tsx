@@ -1,13 +1,14 @@
 'use client';
 
 import styles from './itemLevelZone.module.css';
+
+import { useId } from 'react';
+import Select, { components } from 'react-select';
 import {
   BaseLevel,
   baseLevels,
   useSimulatorStore,
-} from '@/app/simulator/_stores/useSimulatorStore';
-import { useId } from 'react';
-import Select, { components } from 'react-select';
+} from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 type LevelSelectOption = { value: BaseLevel; label: string };
 

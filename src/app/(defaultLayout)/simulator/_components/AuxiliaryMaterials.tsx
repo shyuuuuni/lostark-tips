@@ -1,13 +1,13 @@
 'use client';
 
 import styles from './auxiliaryMaterials.module.css';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 import {
   AuxiliaryMaterial,
   getAuxiliaryMaterial,
-} from '@/app/simulator/_lib/materials';
-import Image from 'next/image';
-import clsx from 'clsx';
+} from '@/app/(defaultLayout)/simulator/_lib/materials';
 
 const imageLoader = ({ src }: { src: string }) =>
   `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;

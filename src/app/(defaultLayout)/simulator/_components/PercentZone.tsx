@@ -1,9 +1,8 @@
 'use client';
 
 import styles from './percentZone.module.css';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
-
-import { getPercent } from '@/app/simulator/_lib/refiningPercent';
+import { getPercent } from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function PercentZone() {
   const usingAuxiliary = useSimulatorStore((store) => store.usingAuxiliary);

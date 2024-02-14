@@ -1,14 +1,13 @@
 'use client';
 
 import styles from './requireMaterials.module.css';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
-import { getRefiningMaterials } from '@/app/simulator/_lib/materials';
 import Image from 'next/image';
-
 import material01Pic from '@assets/material_01.png';
 import material02Pic from '@assets/material_02.png';
 import material03Pic from '@assets/material_03.png';
 import material04Pic from '@assets/material_04.png';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
 
 export default function RequireMaterials() {
   const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(

@@ -2,8 +2,8 @@
 
 import styles from './expBar.module.css';
 import { useEffect } from 'react';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import clsx from 'clsx';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function ExpBar() {
   const [baseLevelUp, isMaxLevel] = useSimulatorStore((store) => [

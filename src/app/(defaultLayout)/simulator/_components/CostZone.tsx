@@ -1,12 +1,12 @@
 'use client';
 
 import styles from './costZone.module.css';
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
-import { getRefiningMaterials } from '@/app/simulator/_lib/materials';
 import Image from 'next/image';
 import material05Pic from '@assets/material_05.webp';
 import material06Pic from '@assets/material_06.webp';
 import material07Pic from '@assets/material_07.webp';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
 
 export default function CostZone() {
   const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(

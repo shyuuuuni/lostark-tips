@@ -1,4 +1,7 @@
-import { BaseLevel, ItemType } from '@/app/simulator/_stores/useSimulatorStore';
+import {
+  BaseLevel,
+  ItemType,
+} from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export type Material =
   | '찬란한 명예의 돌파석'

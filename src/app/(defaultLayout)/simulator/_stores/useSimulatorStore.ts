@@ -1,4 +1,17 @@
 import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
+import { devtools } from 'zustand/middleware';
+import dayjs from 'dayjs';
+import { v1 as uuid } from 'uuid';
+import {
+  AncestorProtection,
+  getAncestorProtection,
+} from '@/app/(defaultLayout)/simulator/_lib/ancestorProtection';
+import {
+  getExpIncrement,
+  getPercent,
+  RefiningType,
+} from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
 import {
   AuxiliaryMaterial,
   Cost,
@@ -6,20 +19,7 @@ import {
   getRefiningMaterials,
   Material,
   RefiningMaterials,
-} from '@/app/simulator/_lib/materials';
-import { immer } from 'zustand/middleware/immer';
-import { devtools } from 'zustand/middleware';
-import {
-  AncestorProtection,
-  getAncestorProtection,
-} from '@/app/simulator/_lib/ancestorProtection';
-import {
-  getExpIncrement,
-  getPercent,
-  RefiningType,
-} from '@/app/simulator/_lib/refiningPercent';
-import dayjs from 'dayjs';
-import { v1 as uuid } from 'uuid';
+} from '@/app/(defaultLayout)/simulator/_lib/materials';
 
 export type ItemType = 'weapon' | 'armor';
 

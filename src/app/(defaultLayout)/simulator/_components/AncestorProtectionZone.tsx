@@ -2,9 +2,9 @@
 
 import styles from './ancestorProtectionZone.module.css';
 
-import { useSimulatorStore } from '@/app/simulator/_stores/useSimulatorStore';
 import clsx from 'clsx';
 import { Tooltip } from 'react-tooltip';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function AncestorProtectionZone() {
   const [ancestorProtectionCount, isFree] = useSimulatorStore((store) => [
