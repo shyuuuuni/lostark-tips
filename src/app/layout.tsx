@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: '상급 재련 시뮬레이터',
   description: '상급 재련 시뮬레이터',
+  icons: {
+    icon: 'favicon.png',
+  },
 };
 
 export default function RootLayout({
