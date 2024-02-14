@@ -1,0 +1,73 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    font-size: 1.4rem;
+}
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 300ms ease;
+}
+.navbar a:hover {
+    color: var(--light-white-color);
+}
+.navbar a.clicked {
+    color: var(--highlight-color);
+}
+.navbar a.clicked:hover {
+    color: var(--light-highlight-color);
+}
+.navbar > div {
+    height: 100%;
+}
+.leftNavZone {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+}
+.rightNavZone {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+}
+.logoZone > img {
+    width: 15.1rem;
+    height: 5rem;
+}
+
+@media screen and (min-width: 769px) {
+    .inquireBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 4rem;
+        padding: 0 2rem 0 2rem;
+        border-radius: 6px;
+        border: 1px solid var(--separator-color);
+        transition-property: border, color;
+        transition-duration: 300ms;
+        transition-timing-function: ease;
+    }
+    .inquireBtn:hover {
+        cursor: pointer;
+        border: 1px solid var(--text-color);
+        color: var(--light-white-color);
+    }
+    .rightNavZone > div:not(:first-child) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .leftNavZone > a:not(:first-child) {
+        display: none;
+    }
+    .inquireBtn {
+        display: none;
+    }
+}

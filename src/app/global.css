@@ -1,5 +1,25 @@
+:root {
+    /* 다크 모드 색상*/
+    --background-color: rgb(30, 33, 50);
+    --text-color: rgb(230, 230, 230);
+    --light-white-color: rgb(255, 255, 255);
+    --separator-color: rgb(50, 55, 80);
+    --highlight-color: rgb(255, 222, 88);
+    --light-highlight-color: rgb(255, 240, 150);
+}
+
+html {
+    font-size: 62.5%;
+}
+
 html, body {
     width: 100dvw;
     height: 100dvh;
     margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 50%;
+    }
 }
