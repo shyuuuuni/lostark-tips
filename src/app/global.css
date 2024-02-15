@@ -1,15 +1,93 @@
+/* colors palette */
 :root {
-    /* 다크 모드 색상*/
-    --background-color: rgb(30, 33, 50);
-    --text-color: rgb(230, 230, 230);
-    --light-white-color: rgb(255, 255, 255);
-    --separator-color: rgb(50, 55, 80);
-    --highlight-color: rgb(255, 222, 88);
-    --light-highlight-color: rgb(255, 240, 150);
+    --gray-000: 228, 100%, 100%;
+    --gray-005: 228, 100%, 98%;
+    --gray-010: 226, 35%, 93%;
+    --gray-015: 228, 24%, 88%;
+    --gray-020: 227, 17%, 77%;
+    --gray-030: 229, 13%, 67%;
+    --gray-040: 227, 11%, 57%;
+    --gray-050: 227, 9%, 48%;
+    --gray-060: 226, 11%, 39%;
+    --gray-070: 224, 13%, 30%;
+    --gray-080: 228, 14%, 21%;
+    --gray-085: 228, 16%, 13%;
+    --gray-090: 231, 16%, 8%;
+    --gray-095: 225, 18%, 4%;
+    --gray-100: 225, 0%, 0%;
+
+    --orange: 48, 100%, 47%;
+}
+:root {
+    --ui-color-background-100: var(--gray-000);
+    --ui-color-background-090: var(--gray-005);
+    --ui-color-background-080: var(--gray-010);
+    --ui-color-background-070: var(--gray-015);
+    --ui-color-background-060: var(--gray-020);
+    --ui-color-background-050: var(--gray-030);
+    --ui-color-background-040: var(--gray-040);
+    --ui-color-background-030: var(--gray-050);
+    --ui-color-background-020: var(--gray-060);
+    --ui-color-background-010: var(--gray-070);
+    --ui-color-background-000: var(--gray-080);
+
+    --ui-color-foreground-100: var(--gray-100);
+    --ui-color-foreground-090: var(--gray-095);
+    --ui-color-foreground-080: var(--gray-090);
+    --ui-color-foreground-070: var(--gray-085);
+    --ui-color-foreground-060: var(--gray-080);
+    --ui-color-foreground-050: var(--gray-070);
+    --ui-color-foreground-040: var(--gray-060);
+    --ui-color-foreground-030: var(--gray-050);
+    --ui-color-foreground-020: var(--gray-040);
+    --ui-color-foreground-010: var(--gray-030);
+    --ui-color-foreground-000: var(--gray-020);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ui-color-background-100: var(--gray-100);
+        --ui-color-background-090: var(--gray-095);
+        --ui-color-background-080: var(--gray-090);
+        --ui-color-background-070: var(--gray-085);
+        --ui-color-background-060: var(--gray-080);
+        --ui-color-background-050: var(--gray-070);
+        --ui-color-background-040: var(--gray-060);
+        --ui-color-background-030: var(--gray-050);
+        --ui-color-background-020: var(--gray-040);
+        --ui-color-background-010: var(--gray-030);
+        --ui-color-background-000: var(--gray-020);
+
+        --ui-color-foreground-100: var(--gray-000);
+        --ui-color-foreground-090: var(--gray-005);
+        --ui-color-foreground-080: var(--gray-010);
+        --ui-color-foreground-070: var(--gray-015);
+        --ui-color-foreground-060: var(--gray-020);
+        --ui-color-foreground-050: var(--gray-030);
+        --ui-color-foreground-040: var(--gray-040);
+        --ui-color-foreground-030: var(--gray-050);
+        --ui-color-foreground-020: var(--gray-060);
+        --ui-color-foreground-010: var(--gray-070);
+        --ui-color-foreground-000: var(--gray-080);
+    }
+}
+:root {
+    --font-color-default: var(--ui-color-foreground-080);
+    --font-color-highlight: var(--ui-color-foreground-100);
+    --font-color-comment: var(--ui-color-foreground-040);
+
+    --bg-color-default: var(--ui-color-background-090);
+    --bg-box-color-default: var(--ui-color-background-070);
+
+    --line-color-default: var(--ui-color-foreground-020);
+    --line-color-highlight: var(--ui-color-foreground-060);
+    --line-fill-color-default: var(--ui-color-background-090);
+    --line-fill-color-highlight: var(--ui-color-background-080);
 }
 
 html {
     font-size: 62.5%;
+    color: hsl(var(--font-color-default));
+    background-color: hsl(var(--bg-color-default));
 }
 
 html, body {

@@ -7,18 +7,15 @@
     font-size: 1.4rem;
 }
 .navbar a {
-    color: var(--text-color);
+    color: hsl(var(--font-color-comment));
     text-decoration: none;
     transition: color 300ms ease;
 }
 .navbar a:hover {
-    color: var(--light-white-color);
+    color: hsl(var(--font-color-highlight));
 }
 .navbar a.clicked {
-    color: var(--highlight-color);
-}
-.navbar a.clicked:hover {
-    color: var(--light-highlight-color);
+    color: hsl(var(--orange));
 }
 .navbar > div {
     height: 100%;
@@ -48,15 +45,18 @@
         height: 4rem;
         padding: 0 2rem 0 2rem;
         border-radius: 6px;
-        border: 1px solid var(--separator-color);
-        transition-property: border, color;
+        border: 1px solid hsl(var(--line-color-default));
+        color: hsl(var(--font-color-default));
+        background-color: hsl(var(--line-fill-color-default));
+        transition-property: border, color, background-color;
         transition-duration: 300ms;
         transition-timing-function: ease;
     }
     .inquireBtn:hover {
         cursor: pointer;
-        border: 1px solid var(--text-color);
-        color: var(--light-white-color);
+        border: 1px solid hsl(var(--line-color-highlight));
+        color: hsl(var(--font-color-highlight));
+        background-color: hsl(var(--line-fill-color-highlight));
     }
     .rightNavZone > div:not(:first-child) {
         display: none;
