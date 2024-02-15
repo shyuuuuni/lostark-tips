@@ -10,8 +10,6 @@ import clsx from 'clsx';
 export default function NavigationBar() {
   const segment = useSelectedLayoutSegment();
 
-  console.log(segment);
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.leftNavZone}>
@@ -22,13 +20,13 @@ export default function NavigationBar() {
           href={'/simulator'}
           className={clsx(segment === 'simulator' && styles.clicked)}
         >
-          상급 재련 시뮬레이터
+          시뮬레이터
         </Link>
         <Link
           href={'/calculator'}
           className={clsx(segment === 'calculator' && styles.clicked)}
         >
-          패키지 효율 계산기
+          효율 계산기
         </Link>
       </div>
       <div className={styles.rightNavZone}>
