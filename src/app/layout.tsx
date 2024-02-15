@@ -1,11 +1,11 @@
 import './global.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const inter = Inter({ subsets: ['latin'] });
+const notoSansKr = Noto_Sans_KR({ subsets: [] });
 
 export const metadata: Metadata = {
   title: '상급 재련 시뮬레이터',
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={notoSansKr.className}>
         {children}
         <Analytics />
         <SpeedInsights />
