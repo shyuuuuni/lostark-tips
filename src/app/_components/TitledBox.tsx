@@ -17,6 +17,7 @@ export default function TitledBox({
   return (
     <div className={clsx(styles.container, light && styles.light, className)}>
       <div className={styles.title}>{title}</div>
+      <div className={styles.divBar} />
       {children}
     </div>
   );
