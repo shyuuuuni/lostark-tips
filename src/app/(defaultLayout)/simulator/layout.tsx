@@ -1,5 +1,5 @@
 import styles from './layout.module.css';
-import NavigationTitle from '@/app/(defaultLayout)/_components/NavigationTitle';
+import NavigationZone from '@/app/(defaultLayout)/_components/NavigationZone';
 
 type Props = {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ const links = [
 export default function SimulatorLayout({ children }: Props) {
   return (
     <div className={styles.simulator}>
-      <NavigationTitle title={'시뮬레이터'} links={links} />
+      <NavigationZone title={'시뮬레이터'} links={links} />
       {children}
     </div>
   );

@@ -1,9 +1,10 @@
 'use client';
 
-import styles from './navigationTitle.module.css';
+import styles from './navigationZone.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import TitledBox from '@/app/_components/TitledBox';
 
 type Props = {
   title: string;
@@ -13,12 +14,11 @@ type Props = {
   }[];
 };
 
-export default function NavigationTitle({ title, links }: Props) {
+export default function NavigationZone({ title, links }: Props) {
   const pathname = usePathname();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>{title}</div>
+    <TitledBox className={styles.titleBox} title={title}>
       <ul className={styles.linkZone}>
         {links.map(({ href, linkTitle }) => (
           <Link
@@ -33,6 +33,6 @@ export default function NavigationTitle({ title, links }: Props) {
           </Link>
         ))}
       </ul>
-    </div>
+    </TitledBox>
   );
 }
