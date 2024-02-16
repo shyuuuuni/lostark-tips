@@ -2,10 +2,10 @@
 
 import styles from './requireMaterials.module.css';
 import Image from 'next/image';
-import material01Pic from '@assets/material_01.png';
-import material02Pic from '@assets/material_02.png';
-import material03Pic from '@assets/material_03.png';
-import material04Pic from '@assets/material_04.png';
+import material01Pic from '@assets/materials/material_01.png';
+import material02Pic from '@assets/materials/material_02.png';
+import material03Pic from '@assets/materials/material_03.png';
+import material04Pic from '@assets/materials/material_04.png';
 import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
 

@@ -2,9 +2,9 @@
 
 import styles from './costZone.module.css';
 import Image from 'next/image';
-import material05Pic from '@assets/material_05.webp';
-import material06Pic from '@assets/material_06.webp';
-import material07Pic from '@assets/material_07.webp';
+import material05Pic from '@assets/materials/material_05.webp';
+import material06Pic from '@assets/materials/material_06.webp';
+import material07Pic from '@assets/materials/material_07.webp';
 import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
 
