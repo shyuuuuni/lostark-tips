@@ -9,15 +9,16 @@ import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSi
 import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
 
 export default function CostZone() {
-  const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(
-    (store) => [
-      store.itemType,
-      store.baseLevel,
+  const [equipmentType, targetLevel, isFree, accumulatedCost] =
+    useSimulatorStore((store) => [
+      store.equipmentType,
+      store.targetLevel,
       store.isFree,
       store.accumulatedCost,
-    ],
-  );
-  const materials = getRefiningMaterials(itemType, baseLevel, { isFree });
+    ]);
+  const materials = getRefiningMaterials(equipmentType, targetLevel, {
+    isFree,
+  });
 
   return (
     <div className={styles.container}>

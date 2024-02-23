@@ -1,20 +1,15 @@
+import { EquipmentType } from '@/type/equipment';
 import {
-  BaseLevel,
-  ItemType,
-} from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+  AdvancedRefiningAuxiliaryRequirements,
+  AdvancedRefiningLevel,
+  AdvancedRefiningRequirements,
+} from '@/type/advancedRefining';
 
-export type Material =
-  | '찬란한 명예의 돌파석'
-  | '정제된 파괴강석'
-  | '정제된 수호강석'
-  | '최상급 오레하 융화재료'; // 필요 재료
-export type Cost = '골드' | '실링' | '명예의 파편'; // 재련 비용
-
-export type RefiningMaterials = {
-  [key in Material | Cost]: number; // 각 속성은 숫자형 값을 가짐
+type RefiningMaterialTable = {
+  [key: string]: AdvancedRefiningRequirements;
 };
-export type RefiningMaterialTable = {
-  [key: string]: RefiningMaterials;
+type RefiningOptions = {
+  isFree: boolean;
 };
 
 const refiningMaterialTable: RefiningMaterialTable = {
@@ -65,33 +60,27 @@ const refiningMaterialTable: RefiningMaterialTable = {
   },
 };
 
-export type RefiningOptions = {
-  isFree: boolean;
-};
 export const getRefiningMaterials = (
-  itemType: ItemType,
-  baseLevel: BaseLevel,
+  equipmentType: EquipmentType,
+  targetLevel: AdvancedRefiningLevel,
   options?: RefiningOptions,
-): RefiningMaterials => {
+): AdvancedRefiningRequirements => {
   if (options?.isFree) {
     return refiningMaterialTable['free'];
   }
-  if (baseLevel < 10) {
+
+  const itemType = equipmentType === '무기' ? 'weapon' : 'armor';
+  if (targetLevel <= 10) {
     return refiningMaterialTable[`${itemType}-0`];
   }
-  if (baseLevel <= 20) {
+  if (targetLevel <= 20) {
     return refiningMaterialTable[`${itemType}-10`];
   }
 
   return refiningMaterialTable['free'];
 };
 
-export type AuxiliaryMaterial = '태양의 은총' | '태양의 축복' | '태양의 가호';
-export type AuxiliaryMaterials = {
-  [key in AuxiliaryMaterial]: number; // 각 속성은 숫자형 값을 가짐
-};
-
-const auxiliaryMaterialTable: AuxiliaryMaterials = {
+const auxiliaryMaterialTable: AdvancedRefiningAuxiliaryRequirements = {
   ['태양의 은총']: 24,
   ['태양의 축복']: 12,
   ['태양의 가호']: 4,

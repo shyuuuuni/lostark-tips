@@ -6,8 +6,8 @@ import clsx from 'clsx';
 import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function ExpBar() {
-  const [baseLevelUp, isMaxLevel] = useSimulatorStore((store) => [
-    store.baseLevelUp,
+  const [levelUp, isMaxLevel] = useSimulatorStore((store) => [
+    store.levelUp,
     store.isMaxLevel,
   ]);
   const [exp, setExp] = useSimulatorStore((store) => [store.exp, store.setExp]);
@@ -19,11 +19,10 @@ export default function ExpBar() {
     }
     if (100 <= exp) {
       setTimeout(() => {
-        setExp(exp - 100);
-        baseLevelUp();
+        levelUp();
       }, 800);
     }
-  }, [isMaxLevel, exp, setExp, baseLevelUp]);
+  }, [isMaxLevel, exp, setExp, levelUp]);
 
   return (
     <div className={styles.container}>

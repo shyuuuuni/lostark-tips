@@ -4,15 +4,15 @@ import styles from './itemLevelZone.module.css';
 
 import { useId } from 'react';
 import Select, { components } from 'react-select';
+import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 import {
-  BaseLevel,
-  baseLevels,
-  useSimulatorStore,
-} from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+  AdvancedRefiningLevel,
+  advancedRefiningLevel,
+} from '@/type/advancedRefining';
 
-type LevelSelectOption = { value: BaseLevel; label: string };
+type LevelSelectOption = { value: AdvancedRefiningLevel; label: string };
 
-const levelSelectOptions: LevelSelectOption[] = baseLevels
+const levelSelectOptions: LevelSelectOption[] = advancedRefiningLevel
   .filter((baseLevel) => baseLevel < 20)
   .map((baseLevel) => ({
     value: baseLevel,
@@ -21,9 +21,9 @@ const levelSelectOptions: LevelSelectOption[] = baseLevels
 
 export default function ItemLevelZone() {
   const isMaxLevel = useSimulatorStore((store) => store.isMaxLevel);
-  const [baseLevel, setBaseLevel] = useSimulatorStore((store) => [
-    store.baseLevel,
-    store.setBaseLevel,
+  const [targetLevel, setTargetLevel] = useSimulatorStore((store) => [
+    store.targetLevel,
+    store.setTargetLevel,
   ]);
 
   // react-select 컴포넌트의 Hydration 시 id did not match 오류 방지
@@ -33,7 +33,7 @@ export default function ItemLevelZone() {
     if (option === null) {
       return;
     }
-    setBaseLevel(option.value);
+    setTargetLevel(option.value);
   };
 
   return (
@@ -42,7 +42,7 @@ export default function ItemLevelZone() {
         className={styles.levelSelect}
         instanceId={baseLevelId}
         options={levelSelectOptions}
-        defaultValue={levelSelectOptions[baseLevel]}
+        defaultValue={levelSelectOptions[targetLevel]}
         onChange={onChangeSelect}
         components={{
           Input: (props) => (
@@ -83,10 +83,10 @@ export default function ItemLevelZone() {
       />
       <div className={styles.levels}>
         {isMaxLevel() ? (
-          <span>{baseLevel}단계</span>
+          <span>{targetLevel}단계 상급 재련 완료</span>
         ) : (
           <>
-            <span>{baseLevel}단계</span> {`>>`} <span>{baseLevel + 1}단계</span>
+            <span>{targetLevel}단계 상급 재련</span>
           </>
         )}
       </div>

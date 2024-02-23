@@ -4,10 +4,8 @@ import styles from './auxiliaryMaterials.module.css';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
-import {
-  AuxiliaryMaterial,
-  getAuxiliaryMaterial,
-} from '@/app/(defaultLayout)/simulator/_lib/materials';
+import { getAuxiliaryMaterial } from '@/app/(defaultLayout)/simulator/_lib/materials';
+import { AuxiliaryMaterial } from '@/type/material';
 
 const imageLoader = ({ src }: { src: string }) =>
   `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;

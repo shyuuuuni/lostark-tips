@@ -8,17 +8,20 @@ import material03Pic from '@assets/materials/material_03.png';
 import material04Pic from '@assets/materials/material_04.png';
 import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
+import {
+  isArmor,
+  isWeapon,
+} from '@/app/(defaultLayout)/simulator/_lib/equipment';
 
 export default function RequireMaterials() {
-  const [itemType, baseLevel, isFree, accumulatedCost] = useSimulatorStore(
-    (store) => [
-      store.itemType,
-      store.baseLevel,
+  const [equipmentType, targetLevel, isFree, accumulatedCost] =
+    useSimulatorStore((store) => [
+      store.equipmentType,
+      store.targetLevel,
       store.isFree,
       store.accumulatedCost,
-    ],
-  );
-  const materials = getRefiningMaterials(itemType, baseLevel, {
+    ]);
+  const materials = getRefiningMaterials(equipmentType, targetLevel, {
     isFree,
   });
 
@@ -26,7 +29,7 @@ export default function RequireMaterials() {
     <div className={styles.container}>
       <p>필요 재료</p>
       <div className={styles.materialsZone}>
-        {itemType === 'weapon' && (
+        {isWeapon(equipmentType) && (
           <div className={styles.material}>
             <div>
               <Image src={material01Pic} alt={'정제된 파괴강석'} />
@@ -35,7 +38,7 @@ export default function RequireMaterials() {
             <div>({accumulatedCost['정제된 파괴강석']})</div>
           </div>
         )}
-        {itemType === 'armor' && (
+        {isArmor(equipmentType) && (
           <div className={styles.material}>
             <div>
               <Image src={material02Pic} alt={'정제된 수호강석'} />

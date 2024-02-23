@@ -1,12 +1,12 @@
 'use client';
 
 import styles from './percentZone.module.css';
-import { getPercent } from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
+import { getAdvancedRefiningPercent } from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
 import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
 
 export default function PercentZone() {
   const usingAuxiliary = useSimulatorStore((store) => store.usingAuxiliary);
-  const { 성공, 대성공, 대성공x2 } = getPercent(usingAuxiliary);
+  const { 성공, 대성공, 대성공x2 } = getAdvancedRefiningPercent(usingAuxiliary);
 
   return (
     <div className={styles.container}>

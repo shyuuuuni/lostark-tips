@@ -1,17 +1,23 @@
 import { UsingAuxiliary } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { AdvancedRefiningTrialType } from '@/type/advancedRefining';
 
-export type RefiningType = '성공' | '대성공' | '대성공x2' | '실패';
-
-export type RefiningPercent = {
-  [key in RefiningType]: number;
+type RefiningPercent = {
+  [key in AdvancedRefiningTrialType]: number;
 };
+type ExpIncrement = {
+  [key in AdvancedRefiningTrialType]: number;
+};
+
 export const basePercent: RefiningPercent = {
   성공: 80,
   대성공: 15,
   대성공x2: 5,
   실패: 0,
 };
-export const getPercent = (auxiliary: UsingAuxiliary): RefiningPercent => {
+
+export const getAdvancedRefiningPercent = (
+  auxiliary: UsingAuxiliary,
+): RefiningPercent => {
   const percent = { ...basePercent };
 
   Object.values(auxiliary).forEach((isUsed) => {
@@ -25,10 +31,6 @@ export const getPercent = (auxiliary: UsingAuxiliary): RefiningPercent => {
   return percent;
 };
 
-type ExpIncrement = {
-  [key in RefiningType]: number;
-};
-
 export const expIncrement: ExpIncrement = {
   성공: 1,
   대성공: 2,
@@ -39,7 +41,7 @@ export const expIncrement: ExpIncrement = {
 export const getExpIncrement = (
   baseExp: number = 10,
   percent: RefiningPercent,
-): [type: RefiningType, expIncrement: number] => {
+): [type: AdvancedRefiningTrialType, expIncrement: number] => {
   const random = Math.floor(Math.random() * 100);
 
   let pivot = 0;
@@ -48,7 +50,10 @@ export const getExpIncrement = (
     pivot += probability;
 
     if (random <= pivot) {
-      return [key as RefiningType, baseExp * expIncrement[key as RefiningType]];
+      return [
+        key as AdvancedRefiningTrialType,
+        baseExp * expIncrement[key as AdvancedRefiningTrialType],
+      ];
     }
   }
 
