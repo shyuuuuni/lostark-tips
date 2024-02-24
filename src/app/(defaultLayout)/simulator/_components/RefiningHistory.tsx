@@ -2,10 +2,10 @@
 
 import styles from './refiningHistory.module.css';
 
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 
 export default function RefiningHistory() {
-  const histories = useSimulatorStore((store) => store.history);
+  const histories = useAdvancedRefiningSimulatorStore((store) => store.history);
 
   return (
     <div className={styles.container}>

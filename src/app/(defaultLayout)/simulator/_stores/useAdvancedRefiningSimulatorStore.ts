@@ -5,8 +5,8 @@ import dayjs from 'dayjs';
 import { v1 as uuid } from 'uuid';
 import { getAncestorProtection } from '@/app/(defaultLayout)/simulator/_lib/ancestorProtection';
 import {
-  getExpIncrement,
   getAdvancedRefiningPercent,
+  getExpIncrement,
 } from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
 import {
   getAuxiliaryMaterial,
@@ -17,17 +17,14 @@ import {
   AdvancedRefiningAuxiliaryRequirements,
   AdvancedRefiningLevel,
   AdvancedRefiningRequirements,
-  AncestorProtectionCount,
   AdvancedRefiningSimulationHistory,
   AncestorProtection,
+  AncestorProtectionCount,
+  UsingAuxiliary,
 } from '@/type/advancedRefining';
 import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
 
-export type UsingAuxiliary = {
-  [key in AuxiliaryMaterial]: boolean;
-};
-
-type SimulatorState = {
+type AdvancedRefiningSimulatorState = {
   equipmentType: EquipmentType;
   targetLevel: AdvancedRefiningLevel;
   exp: number;
@@ -38,7 +35,7 @@ type SimulatorState = {
   accumulatedCost: AdvancedRefiningRequirements &
     AdvancedRefiningAuxiliaryRequirements & { trials: number };
 };
-type SimulatorAction = {
+type AdvancedRefiningSimulatorAction = {
   setEquipmentType: (equipmentType: EquipmentType) => void;
   setTargetLevel: (targetLevel: AdvancedRefiningLevel) => void;
   setExp: (exp: number) => void;
@@ -49,7 +46,7 @@ type SimulatorAction = {
   reset: (equipmentType?: EquipmentType) => void;
 };
 
-const defaultState: SimulatorState = {
+const defaultState: AdvancedRefiningSimulatorState = {
   equipmentType: '무기',
   targetLevel: 1,
   exp: 0,
@@ -75,7 +72,10 @@ const defaultState: SimulatorState = {
     ['태양의 가호']: 0,
   },
 };
-export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
+
+export const useAdvancedRefiningSimulatorStore = create<
+  AdvancedRefiningSimulatorState & AdvancedRefiningSimulatorAction
+>()(
   devtools(
     immer((set, get) => ({
       ...defaultState,
@@ -154,17 +154,16 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
           const levelUpCount = Math.floor(
             (exp + expIncrement + additionalExp) / 100,
           );
-          const nextTargetLevel = Math.min(
-            targetLevel + levelUpCount,
-            20,
-          ) as AdvancedRefiningLevel;
 
-          if (20 < nextTargetLevel + levelUpCount) {
+          if (20 < targetLevel + levelUpCount) {
             state.exp = 100;
             state.targetLevel = 20;
           } else {
             state.exp = (exp + expIncrement + additionalExp) % 100;
-            state.targetLevel = nextTargetLevel;
+            state.targetLevel = Math.min(
+              targetLevel + levelUpCount,
+              20,
+            ) as AdvancedRefiningLevel;
           }
 
           state.isFree = nextIsFree;
@@ -187,8 +186,8 @@ export const useSimulatorStore = create<SimulatorState & SimulatorAction>()(
             date: dayjs().toDate(),
             targetLevel,
             expFrom: exp,
-            nextTargetLevel,
-            expTo: (exp + expIncrement + additionalExp) % 100,
+            nextTargetLevel: state.targetLevel,
+            expTo: state.exp,
             equipmentType,
             ancestorProtection,
             refiningType,

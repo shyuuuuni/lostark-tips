@@ -4,7 +4,7 @@ import styles from './itemLevelZone.module.css';
 
 import { useId } from 'react';
 import Select, { components } from 'react-select';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import {
   AdvancedRefiningLevel,
   advancedRefiningLevel,
@@ -20,11 +20,12 @@ const levelSelectOptions: LevelSelectOption[] = advancedRefiningLevel
   }));
 
 export default function ItemLevelZone() {
-  const isMaxLevel = useSimulatorStore((store) => store.isMaxLevel);
-  const [targetLevel, setTargetLevel] = useSimulatorStore((store) => [
-    store.targetLevel,
-    store.setTargetLevel,
-  ]);
+  const [isMaxLevel, targetLevel, setTargetLevel] =
+    useAdvancedRefiningSimulatorStore((store) => [
+      store.isMaxLevel,
+      store.targetLevel,
+      store.setTargetLevel,
+    ]);
 
   // react-select 컴포넌트의 Hydration 시 id did not match 오류 방지
   const baseLevelId = useId();

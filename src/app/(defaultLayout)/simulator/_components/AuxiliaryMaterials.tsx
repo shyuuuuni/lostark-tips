@@ -3,7 +3,7 @@
 import styles from './auxiliaryMaterials.module.css';
 import Image from 'next/image';
 import clsx from 'clsx';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import { getAuxiliaryMaterial } from '@/app/(defaultLayout)/simulator/_lib/materials';
 import { AuxiliaryMaterial } from '@/type/material';
 
@@ -11,13 +11,12 @@ const imageLoader = ({ src }: { src: string }) =>
   `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;
 
 export default function AuxiliaryMaterials() {
-  const [usingAuxiliary, toggleAuxiliary, accumulatedCost] = useSimulatorStore(
-    (store) => [
+  const [usingAuxiliary, toggleAuxiliary, accumulatedCost] =
+    useAdvancedRefiningSimulatorStore((store) => [
       store.usingAuxiliary,
       store.toggleAuxiliary,
       store.accumulatedCost,
-    ],
-  );
+    ]);
   const materials = getAuxiliaryMaterial();
 
   const onClickAuxiliary = (auxiliary: AuxiliaryMaterial) => () => {

@@ -3,14 +3,12 @@
 import styles from './expBar.module.css';
 import { useEffect } from 'react';
 import clsx from 'clsx';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 
 export default function ExpBar() {
-  const [levelUp, isMaxLevel] = useSimulatorStore((store) => [
-    store.levelUp,
-    store.isMaxLevel,
-  ]);
-  const [exp, setExp] = useSimulatorStore((store) => [store.exp, store.setExp]);
+  const [exp, levelUp, isMaxLevel] = useAdvancedRefiningSimulatorStore(
+    (store) => [store.exp, store.levelUp, store.isMaxLevel],
+  );
   const progress = exp <= 100 ? exp : 100;
 
   useEffect(() => {
@@ -22,7 +20,7 @@ export default function ExpBar() {
         levelUp();
       }, 800);
     }
-  }, [isMaxLevel, exp, setExp, levelUp]);
+  }, [isMaxLevel, exp, levelUp]);
 
   return (
     <div className={styles.container}>

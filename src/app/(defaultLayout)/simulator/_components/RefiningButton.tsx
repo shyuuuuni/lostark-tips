@@ -4,10 +4,10 @@ import styles from './refiningButton.module.css';
 
 import { MouseEventHandler } from 'react';
 import { useThrottle } from '@/app/_hooks/useThrottle';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 
 export default function RefiningButton() {
-  const [refine, reset] = useSimulatorStore((store) => [
+  const [refine, reset] = useAdvancedRefiningSimulatorStore((store) => [
     store.refine,
     store.reset,
   ]);

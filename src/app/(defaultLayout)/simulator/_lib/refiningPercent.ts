@@ -1,5 +1,7 @@
-import { UsingAuxiliary } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
-import { AdvancedRefiningTrialType } from '@/type/advancedRefining';
+import {
+  AdvancedRefiningTrialType,
+  UsingAuxiliary,
+} from '@/type/advancedRefining';
 
 type RefiningPercent = {
   [key in AdvancedRefiningTrialType]: number;

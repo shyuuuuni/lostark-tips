@@ -5,12 +5,12 @@ import Image from 'next/image';
 import material05Pic from '@assets/materials/material_05.webp';
 import material06Pic from '@assets/materials/material_06.webp';
 import material07Pic from '@assets/materials/material_07.webp';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import { getRefiningMaterials } from '@/app/(defaultLayout)/simulator/_lib/materials';
 
 export default function CostZone() {
   const [equipmentType, targetLevel, isFree, accumulatedCost] =
-    useSimulatorStore((store) => [
+    useAdvancedRefiningSimulatorStore((store) => [
       store.equipmentType,
       store.targetLevel,
       store.isFree,

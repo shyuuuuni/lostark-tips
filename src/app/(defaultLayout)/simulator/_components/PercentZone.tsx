@@ -2,10 +2,12 @@
 
 import styles from './percentZone.module.css';
 import { getAdvancedRefiningPercent } from '@/app/(defaultLayout)/simulator/_lib/refiningPercent';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 
 export default function PercentZone() {
-  const usingAuxiliary = useSimulatorStore((store) => store.usingAuxiliary);
+  const usingAuxiliary = useAdvancedRefiningSimulatorStore(
+    (store) => store.usingAuxiliary,
+  );
   const { 성공, 대성공, 대성공x2 } = getAdvancedRefiningPercent(usingAuxiliary);
 
   return (

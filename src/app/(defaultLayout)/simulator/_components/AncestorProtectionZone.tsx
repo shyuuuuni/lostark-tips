@@ -4,13 +4,12 @@ import styles from './ancestorProtectionZone.module.css';
 
 import clsx from 'clsx';
 import { Tooltip } from 'react-tooltip';
-import { useSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useSimulatorStore';
+import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 
 export default function AncestorProtectionZone() {
-  const [ancestorProtectionCount, isFree] = useSimulatorStore((store) => [
-    store.ancestorProtectionCount,
-    store.isFree,
-  ]);
+  const [ancestorProtectionCount, isFree] = useAdvancedRefiningSimulatorStore(
+    (store) => [store.ancestorProtectionCount, store.isFree],
+  );
 
   return (
     <div className={styles.container}>
