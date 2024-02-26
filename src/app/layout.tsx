@@ -5,7 +5,7 @@ import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const notoSansKr = Noto_Sans_KR({ subsets: [] });
+const notoSansKr = Noto_Sans_KR({ weight: ['400', '500'], subsets: [] });
 
 export const metadata: Metadata = {
   title: '상급 재련 시뮬레이터',
@@ -26,6 +26,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        <div id="tooltips-portal" />
       </body>
     </html>
   );

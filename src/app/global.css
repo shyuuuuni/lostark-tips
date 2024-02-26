@@ -96,31 +96,41 @@
     --ui-color-foreground-000: var(--gray-080);
 }
 :root {
-    --font-color-default: var(--ui-color-foreground-070);
     --font-color-highlight: var(--ui-color-foreground-100);
+    --font-color-default: var(--ui-color-foreground-070);
+    --font-color-light: var(--ui-color-foreground-060);
     --font-color-comment: var(--ui-color-foreground-040);
 
-    --bg-color-default: var(--ui-color-background-070);
-    --bg-box-color-default: var(--ui-color-background-090);
     --bg-box-color-highlight: var(--ui-color-background-100);
+    --bg-box-color-default: var(--ui-color-background-090);
 
-    --line-color-default: var(--ui-color-foreground-020);
-    --line-color-highlight: var(--ui-color-foreground-060);
+    --bg-color-highlight: var(--ui-color-background-100);
+    --bg-color-default: var(--ui-color-background-070);
+
+    --line-color-highlight: var(--ui-color-foreground-020);
+    --line-color-default: var(--ui-color-foreground-000);
     --line-color-bright: var(--ui-color-foreground-080);
+
     --line-fill-color-default: var(--ui-color-background-090);
     --line-fill-color-highlight: var(--ui-color-background-080);
 }
 
+html, body {
+    margin: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
 html {
     font-size: 62.5%;
+    font-weight: 400;
     color: hsl(var(--font-color-default));
-    background-color: hsl(var(--bg-color-default));
+    background: linear-gradient(180deg, hsl(var(--ui-color-background-100)) 5%, hsl(var(--ui-color-background-080)) 10%, hsl(var(--bg-color-default)) 100%) no-repeat;
 }
 
-html, body {
-    width: 100dvw;
-    height: 100dvh;
-    margin: 0;
+/* 리액트 렌더링 영역과 독립된 영역 */
+#tooltips-portal {
+    position: absolute;
+    z-index: 7000;
 }
 
 @media screen and (max-width: 768px) {

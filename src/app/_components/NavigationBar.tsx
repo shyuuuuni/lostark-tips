@@ -14,7 +14,7 @@ export default function NavigationBar() {
     <nav className={styles.navbar}>
       <div className={styles.leftNavZone}>
         <Link href={'/'} className={styles.logoZone}>
-          <Image src={Logo} alt={'LoaTips 로고'} />
+          <Image src={Logo} alt={'LoaTips 로고'} priority={true} />
         </Link>
         <Link
           href={'/simulator'}

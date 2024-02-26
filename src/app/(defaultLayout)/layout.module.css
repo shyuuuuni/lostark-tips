@@ -12,7 +12,7 @@
     position: sticky;
     top: 0;
     z-index: 5000;
-    background-color: hsl(var(--bg-color-default), 0.1);
+    background-color: hsl(var(--ui-color-background-100), 0.5);
     backdrop-filter: saturate(140%) blur(12px);
     border-bottom: 1px solid hsl(var(--line-color-default));
     box-sizing: border-box;
@@ -23,4 +23,11 @@
     width: 100%;
     overflow-x: scroll;
     max-width: 1200px;
+}
+
+@media screen and (min-width: 769px) {
+    .main {
+        padding: 0 5rem 0 5rem;
+        box-sizing: border-box;
+    }
 }

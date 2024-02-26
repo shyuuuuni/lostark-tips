@@ -1,4 +1,7 @@
-﻿.linkZone {
+﻿.titleBox {
+    margin-top: 1.6rem;
+}
+.linkZone {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -11,16 +14,17 @@
 }
 .link {
     list-style: none;
-    background-color: hsl(var(--ui-color-background-060));
+    background-color: hsl(var(--ui-color-background-070));
     border: 1px solid hsl(var(--line-color-default), 0.5);
     padding: 0.8rem;
-    color: hsl(var(--font-color-default));
+    color: hsl(var(--font-color-default), 0.8);
     font-size: 1.6rem;
     text-decoration: none;
-    transition: color 300ms ease;
+    transition: background-color 150ms ease;
 }
 .highlighted {
-    background-color: hsl(var(--ui-color-background-090));
+    background-color: hsl(var(--ui-color-background-050));
+    color: hsl(var(--font-color-highlight));
 }
 .link:first-child {
     border-top-left-radius: 4px;
@@ -32,9 +36,6 @@
 }
 
 @media screen and (min-width: 769px) {
-    .titleBox {
-        margin-top: 3.2rem;
-    }
 }
 @media screen and (max-width: 768px) {
 }

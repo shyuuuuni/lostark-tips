@@ -5,21 +5,45 @@ import styles from './ancestorProtectionZone.module.css';
 import clsx from 'clsx';
 import { Tooltip } from 'react-tooltip';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
+import withTooltipPortal from '@/app/_hocs/withTooltipPortal';
 
-export default function AncestorProtectionZone() {
+type Props = {
+  className?: string;
+};
+
+const PortalTooltip = withTooltipPortal(Tooltip);
+
+export default function AncestorProtectionZone({ className }: Props) {
   const [ancestorProtectionCount, isFree] = useAdvancedRefiningSimulatorStore(
     (store) => [store.ancestorProtectionCount, store.isFree],
   );
 
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container, className)}>
       <div
         className={styles.label}
         data-tooltip-id="ancestor-protection-information"
       >
-        선조의 가호
+        [선조의 가호]
       </div>
-      <Tooltip id="ancestor-protection-information" place={'bottom'}>
+      {isFree && (
+        <div className={styles.isFree}>
+          테메르의 정 효과가 적용중입니다. (다음 상급 재련 시 재료 및 비용 무료)
+        </div>
+      )}
+      <div className={styles.ancestorProtectionList}>
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i + 1}
+            className={clsx(
+              styles.ancestorProtectionItem,
+              i + 1 <= ancestorProtectionCount && styles.selected,
+              ancestorProtectionCount === 6 && styles.full,
+            )}
+          />
+        ))}
+      </div>
+      <PortalTooltip id="ancestor-protection-information" place={'bottom'}>
         <div className={styles.tooltip}>
           <h3>선조의 가호</h3>
           <p>
@@ -36,24 +60,7 @@ export default function AncestorProtectionZone() {
             무료
           </div>
         </div>
-      </Tooltip>
-      <div className={styles.ancestorProtectionList}>
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i + 1}
-            className={clsx(
-              styles.ancestorProtectionItem,
-              i + 1 <= ancestorProtectionCount && styles.selected,
-              ancestorProtectionCount === 6 && styles.full,
-            )}
-          />
-        ))}
-      </div>
-      {isFree && (
-        <div className={styles.isFree}>
-          테메르의 정 효과가 적용중입니다. (다음 상급 재련 시 재료 및 비용 무료)
-        </div>
-      )}
+      </PortalTooltip>
     </div>
   );
 }

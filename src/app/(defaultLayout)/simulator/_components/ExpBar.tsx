@@ -5,7 +5,11 @@ import { useEffect } from 'react';
 import clsx from 'clsx';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 
-export default function ExpBar() {
+type Props = {
+  className?: string;
+};
+
+export default function ExpBar({ className }: Props) {
   const [exp, levelUp, isMaxLevel] = useAdvancedRefiningSimulatorStore(
     (store) => [store.exp, store.levelUp, store.isMaxLevel],
   );
@@ -23,7 +27,7 @@ export default function ExpBar() {
   }, [isMaxLevel, exp, levelUp]);
 
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container, className)}>
       {isMaxLevel() ? (
         <>
           <div className={styles.expBarZone}>
@@ -44,7 +48,6 @@ export default function ExpBar() {
               ))}
             </div>
           </div>
-          <p>상급 재련 완료</p>
         </>
       ) : (
         <div className={styles.expBarZone}>
