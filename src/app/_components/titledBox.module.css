@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    z-index: 4000;
     flex-direction: column;
     width: 100%;
     background-color: hsl(var(--bg-box-color-default));

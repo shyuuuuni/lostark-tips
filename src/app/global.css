@@ -96,6 +96,7 @@
     --ui-color-foreground-000: var(--gray-080);
 }
 :root {
+    /* theme */
     --font-color-highlight: var(--ui-color-foreground-100);
     --font-color-default: var(--ui-color-foreground-070);
     --font-color-light: var(--ui-color-foreground-060);
@@ -113,6 +114,10 @@
 
     --line-fill-color-default: var(--ui-color-background-090);
     --line-fill-color-highlight: var(--ui-color-background-080);
+
+    /* z-index */
+    --z-index-layout: 5000;
+    --z-index-tooltip: 7000;
 }
 
 html, body {
@@ -126,11 +131,17 @@ html {
     color: hsl(var(--font-color-default));
     background: linear-gradient(180deg, hsl(var(--ui-color-background-100)) 5%, hsl(var(--ui-color-background-080)) 10%, hsl(var(--bg-color-default)) 100%) no-repeat;
 }
+body{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
 
 /* 리액트 렌더링 영역과 독립된 영역 */
 #tooltips-portal {
     position: absolute;
-    z-index: 7000;
+    z-index: var(--z-index-tooltip);
 }
 
 @media screen and (max-width: 768px) {

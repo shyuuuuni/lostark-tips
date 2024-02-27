@@ -11,7 +11,7 @@
     height: 7rem;
     position: sticky;
     top: 0;
-    z-index: 5000;
+    z-index: var(--z-index-layout);
     background-color: hsl(var(--ui-color-background-100), 0.5);
     backdrop-filter: saturate(140%) blur(12px);
     border-bottom: 1px solid hsl(var(--line-color-default));

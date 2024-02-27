@@ -6,6 +6,7 @@
     align-items: center;
     gap: 1.6rem;
     margin-top: 1.6rem;
+    margin-bottom: 10rem;
 }
 .titledBoxContents {
     display: flex;

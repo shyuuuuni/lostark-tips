@@ -6,9 +6,8 @@ import PercentZone from '@/app/(defaultLayout)/simulator/_components/PercentZone
 import RequireMaterials from '@/app/(defaultLayout)/simulator/_components/RequireMaterials';
 import AuxiliaryMaterials from '@/app/(defaultLayout)/simulator/_components/AuxiliaryMaterials';
 import CostZone from '@/app/(defaultLayout)/simulator/_components/CostZone';
-import RefiningButton from '@/app/(defaultLayout)/simulator/_components/RefiningButton';
-import RefiningHistory from '@/app/(defaultLayout)/simulator/_components/RefiningHistory';
 import TitledBox from '@/app/_components/TitledBox';
+import ControlZone from '@/app/(defaultLayout)/simulator/_components/ControlZone/ControlZone';
 
 export default function AdvancedHoning() {
   return (
@@ -34,8 +33,7 @@ export default function AdvancedHoning() {
         </div>
         <CostZone className={styles.gapedContent} />
       </TitledBox>
-      <RefiningButton />
-      <RefiningHistory />
+      <ControlZone />
     </div>
   );
 }
