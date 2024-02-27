@@ -13,21 +13,24 @@
     align-items: center;
 }
 .gapedContent {
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
+}
+.materialsZone {
+    display: flex;
+    margin-top: 1.6rem;
+    gap: 1.6rem;
+    justify-content: center;
 }
 
 @media screen and (min-width: 769px) {
-    .materialZone {
-        display: flex;
+    .materialsZone {
         flex-direction: row;
-        gap: 1.6rem;
     }
 }
 @media screen and (max-width: 768px) {
-    .materialZone {
+    .materialsZone {
         width: 100%;
         flex-direction: column;
-        justify-content: space-between;
-        gap: 3.2rem;
+        max-width: 40rem;
     }
 }

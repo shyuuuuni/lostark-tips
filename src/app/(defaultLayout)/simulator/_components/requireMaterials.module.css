@@ -1,57 +1,47 @@
-@media screen and (min-width: 769px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 350px;
-        height: 160px;
-    }
-    .container > p {
-        margin: 0;
-        font-size: 20px;
-    }
-    .materialsZone {
-        width: fit-content;
-        margin-top: 16px;
-        display: flex;
-        flex-direction: row;
-        gap: 16px;
-    }
-    .material {
-        width: 100px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: rgb(142, 189, 2);
-        font-size: 16px;
-    }
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1.6rem;
+    border: 1px solid hsl(var(--line-color-default));
+    border-radius: 4px;
+    overflow-x: scroll;
+}
+.title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    color: hsl(var(--font-color-light))
+}
+.divBar {
+    width: calc(100% + 2 * 1.6rem);
+    margin: 0.8rem -1.6rem 1.6rem -1.6rem;
+    height: 1px;
+    border-bottom: 1px solid hsl(var(--line-color-default));
+}
+.materialsZone {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: rgb(155, 182, 131);
+    font-size: 1.6rem;
+    gap: 2rem;
+}
+.materialZone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 769px) {
     .container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        max-width: 350px;
     }
-    .container > p {
-        margin: 0 0 0 8px;
-        font-size: 16px;
-    }
-    .materialsZone {
-        width: 100%;
-        margin-top: 8px;
-        display: flex;
-        flex-direction: row;
-    }
-    .material {
+}
+@media screen and (max-width: 768px) {
+    .materialZone {
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: rgb(142, 189, 2);
-        font-size: 12px;
-    }
-    .material > div > img {
-        width: 48px;
-        height: 48px;
     }
 }

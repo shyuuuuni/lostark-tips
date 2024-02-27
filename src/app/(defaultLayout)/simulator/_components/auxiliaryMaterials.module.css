@@ -1,120 +1,80 @@
- @media screen and (min-width: 769px) {
-     .container {
-         display: flex;
-         flex-direction: column;
-         width: 350px;
-         height: 150px;
-     }
-     .control {
-         display: flex;
-         flex-direction: row;
-         justify-content: space-between;
-         align-items: center;
-     }
-     .control > p {
-         margin: 0;
-         font-size: 20px;
-     }
-     .control > div {
-         font-size: 12px;
-         padding: 4px;
-         color: white;
-         background: radial-gradient(circle, rgb(66, 76, 84) 0%, rgb(72, 83, 94) 100%);
-         /* 버튼 더블 클릭 시 드래그 방지*/
-         -webkit-user-select:none;
-         -moz-user-select:none;
-         -ms-user-select:none;
-         user-select:none
-     }
-     .control > div:hover {
-         cursor: pointer;
-         opacity: 0.80;
-         transition: opacity 0.5s ease;
-     }
-     .materialsZone {
-         width: fit-content;
-         margin-top: 16px;
-         display: flex;
-         flex-direction: row;
-         gap: 16px;
-     }
-     .material {
-         width: 100px;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         color: rgb(144, 4, 3);
-         font-size: 16px;
-     }
-     .material:hover {
-         cursor: pointer;
-         transform: scale(1.02);
-         opacity: 0.95;
-         transition: transform 0.3s ease, opacity 0.3s ease; /* 부드러운 전환 효과 */
-     }
-     .selected {
-         color: rgb(142, 189, 2);
-     }
- }
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1.6rem;
+    border: 1px solid hsl(var(--line-color-default));
+    border-radius: 4px;
+    overflow-x: scroll;
+}
+.titleZone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    color: hsl(var(--font-color-light))
+}
+.controlBtn {
+    font-size: 1.2rem;
+    background-color: hsl(var(--ui-color-background-060));
+    color: hsl(var(--font-color-default));
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    border: 0;
+    outline: 0;
+}
+.controlBtn:hover {
+    cursor: pointer;
+}
+.divBar {
+    width: calc(100% + 2 * 1.6rem);
+    margin: 0.8rem -1.6rem 1.6rem -1.6rem;
+    height: 1px;
+    border-bottom: 1px solid hsl(var(--line-color-default));
+}
+.materialsZone {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+.materialAmount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(144, 4, 3);
+    font-size: 1.6rem;
+}
+.materialAmount.selected {
+    color: rgb(155, 182, 131);
+}
+.materialZone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+}
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 769px) {
     .container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        max-width: 350px;
     }
-    .control {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .materialZone {
+        transition: background-color 150ms ease;
     }
-    .control > p {
-        margin: 0 0 0 8px;
-        font-size: 16px;
-    }
-    .control > div {
-        font-size: 12px;
-        padding: 4px;
-        margin: 0 8px 0 0;
-        color: white;
-        background: radial-gradient(circle, rgb(66, 76, 84) 0%, rgb(72, 83, 94) 100%);
-        /* 버튼 더블 클릭 시 드래그 방지*/
-        -webkit-user-select:none;
-        -moz-user-select:none;
-        -ms-user-select:none;
-        user-select:none
-    }
-    .control > div:hover {
+    .materialZone:hover {
         cursor: pointer;
-        opacity: 0.80;
-        transition: opacity 0.5s ease;
+        background-color: hsl(var(--ui-color-background-070));
+        border-radius: 4px;
     }
-    .materialsZone {
-        width: 100%;
-        margin-top: 8px;
-        display: flex;
-        flex-direction: row;
-    }
-    .material {
+ }
+@media screen and (max-width: 768px) {
+    .materialZone {
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: rgb(144, 4, 3);
-        font-size: 12px;
-    }
-    .material:hover {
-        cursor: pointer;
-        transform: scale(1.02);
-        opacity: 0.95;
-        transition: transform 0.3s ease, opacity 0.3s ease; /* 부드러운 전환 효과 */
-    }
-    .material > div > img {
-        width: 48px;
-        height: 48px;
-    }
-    .selected {
-        color: rgb(142, 189, 2);
     }
 }

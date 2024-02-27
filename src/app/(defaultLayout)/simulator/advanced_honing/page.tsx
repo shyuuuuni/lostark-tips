@@ -22,17 +22,17 @@ export default function AdvancedHoning() {
         <AncestorProtectionZone className={styles.gapedContent} />
         <ExpBar className={styles.gapedContent} />
       </TitledBox>
-      <PercentZone />
-      <div style={{ display: 'flex', width: '100%', gap: '1.6rem' }}>
-        <TitledBox title={'필요 재료'} className={styles.titledBoxContents}>
+      <TitledBox
+        title={'재련 비용'}
+        light={true}
+        className={styles.titledBoxContents}
+      >
+        <PercentZone />
+        <div className={styles.materialsZone}>
           <RequireMaterials />
-        </TitledBox>
-        <TitledBox title={'추가 재료'} className={styles.titledBoxContents}>
           <AuxiliaryMaterials />
-        </TitledBox>
-      </div>
-      <TitledBox title={'재련 비용'}>
-        <CostZone />
+        </div>
+        <CostZone className={styles.gapedContent} />
       </TitledBox>
       <RefiningButton />
       <RefiningHistory />

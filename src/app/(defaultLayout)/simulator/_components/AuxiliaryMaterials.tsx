@@ -1,22 +1,16 @@
 'use client';
 
 import styles from './auxiliaryMaterials.module.css';
-import Image from 'next/image';
 import clsx from 'clsx';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import { getAuxiliaryMaterial } from '@/app/(defaultLayout)/simulator/_lib/materials';
 import { AuxiliaryMaterial } from '@/type/material';
-
-const imageLoader = ({ src }: { src: string }) =>
-  `https://cdn-lostark.game.onstove.com/efui_iconatlas/use/${src}`;
+import Material from '@/app/(defaultLayout)/simulator/_components/Material';
 
 export default function AuxiliaryMaterials() {
-  const [usingAuxiliary, toggleAuxiliary, accumulatedCost] =
-    useAdvancedRefiningSimulatorStore((store) => [
-      store.usingAuxiliary,
-      store.toggleAuxiliary,
-      store.accumulatedCost,
-    ]);
+  const [usingAuxiliary, toggleAuxiliary] = useAdvancedRefiningSimulatorStore(
+    (store) => [store.usingAuxiliary, store.toggleAuxiliary],
+  );
   const materials = getAuxiliaryMaterial();
 
   const onClickAuxiliary = (auxiliary: AuxiliaryMaterial) => () => {
@@ -42,81 +36,54 @@ export default function AuxiliaryMaterials() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.control}>
-        <p>추가 재료</p>
-        <div onClick={onClickAll}>모두 선택</div>
+      <div className={styles.titleZone}>
+        <p className={styles.title}>보조 재련 재료</p>
+        <button className={styles.controlBtn} onClick={onClickAll}>
+          모두 선택
+        </button>
       </div>
+      <div className={styles.divBar} />
       <div className={styles.materialsZone}>
         <div
-          className={styles.material}
+          className={styles.materialZone}
           onClick={onClickAuxiliary('태양의 은총')}
         >
-          <div>
-            <Image
-              loader={imageLoader}
-              src={'use_7_161.png'}
-              width={64}
-              height={64}
-              alt={'태양의 은총'}
-            />
-          </div>
+          <Material materialType={'태양의 은총'} />
           <div
-            className={clsx(usingAuxiliary['태양의 은총'] && styles.selected)}
+            className={clsx(
+              styles.materialAmount,
+              usingAuxiliary['태양의 은총'] && styles.selected,
+            )}
           >
             {usingAuxiliary['태양의 은총'] ? materials['태양의 은총'] : 0}
           </div>
-          <div
-            className={clsx(usingAuxiliary['태양의 은총'] && styles.selected)}
-          >
-            ({accumulatedCost['태양의 은총']})
-          </div>
         </div>
         <div
-          className={styles.material}
+          className={styles.materialZone}
           onClick={onClickAuxiliary('태양의 축복')}
         >
-          <div>
-            <Image
-              loader={imageLoader}
-              src={'use_7_162.png'}
-              width={64}
-              height={64}
-              alt={'태양의 축복'}
-            />
-          </div>
+          <Material materialType={'태양의 축복'} />
           <div
-            className={clsx(usingAuxiliary['태양의 축복'] && styles.selected)}
+            className={clsx(
+              styles.materialAmount,
+              usingAuxiliary['태양의 축복'] && styles.selected,
+            )}
           >
             {usingAuxiliary['태양의 축복'] ? materials['태양의 축복'] : 0}
           </div>
-          <div
-            className={clsx(usingAuxiliary['태양의 축복'] && styles.selected)}
-          >
-            ({accumulatedCost['태양의 축복']})
-          </div>
         </div>
         <div
-          className={styles.material}
+          className={styles.materialZone}
           onClick={onClickAuxiliary('태양의 가호')}
         >
-          <div>
-            <Image
-              loader={imageLoader}
-              src={'use_7_163.png'}
-              width={64}
-              height={64}
-              alt={'태양의 가호'}
-            />
-          </div>
+          <Material materialType={'태양의 가호'} />
           <div
-            className={clsx(usingAuxiliary['태양의 가호'] && styles.selected)}
+            className={clsx(
+              styles.materialAmount,
+              usingAuxiliary['태양의 가호'] && styles.selected,
+            )}
           >
             {usingAuxiliary['태양의 가호'] ? materials['태양의 가호'] : 0}
-          </div>
-          <div
-            className={clsx(usingAuxiliary['태양의 가호'] && styles.selected)}
-          >
-            ({accumulatedCost['태양의 가호']})
           </div>
         </div>
       </div>
