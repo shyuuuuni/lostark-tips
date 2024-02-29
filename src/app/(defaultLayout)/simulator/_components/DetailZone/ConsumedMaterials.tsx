@@ -14,7 +14,7 @@ const auxiliaryTypes: AuxiliaryMaterial[] = [
   '태양의 축복',
   '태양의 가호',
 ];
-const costTypes: Cost[] = ['명예의 파편', '실링', '골드'];
+const costTypes: Cost[] = ['실링', '골드']; // 명파는 별도
 
 export default function ConsumedMaterials() {
   const [equipmentType, accumulatedCost] = useAdvancedRefiningSimulatorStore(
@@ -50,6 +50,10 @@ export default function ConsumedMaterials() {
         ))}
       </div>
       <div className={styles.materialsZone}>
+        <ConsumedMaterial
+          materialType={'명예의 파편'}
+          count={accumulatedCost['명예의 파편']}
+        />
         {costTypes.map((costType) => (
           <ConsumedCost
             key={costType}

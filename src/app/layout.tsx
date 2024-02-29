@@ -4,6 +4,7 @@ import { Noto_Sans_KR } from 'next/font/google';
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import ReactQueryProvider from '@/app/_business/ReactQueryProvider';
 
 const notoSansKr = Noto_Sans_KR({ weight: ['400', '500'], subsets: [] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={notoSansKr.className}>
-        {children}
+        <ReactQueryProvider>{children}</ReactQueryProvider>
         <Analytics />
         <SpeedInsights />
         <div id="tooltips-portal" />

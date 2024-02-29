@@ -3,16 +3,16 @@ import { AncestorProtection } from '@/type/advancedRefining';
 type AncestorProtectionPercent = {
   [key in AncestorProtection]: number;
 };
-type AncestorProtectionInfo = {
-  [key in AncestorProtection]: string;
-};
+// type AncestorProtectionInfo = {
+//   [key in AncestorProtection]: string;
+// };
 
-const ancestorProtectionInfo: AncestorProtectionInfo = {
-  ['갈라투르의 망치']: '상급 재련 경험치 5배 증가',
-  ['겔라르의 칼']: '상급 재련 경험치 3배 증가',
-  ['쿠훔바르의 모루']: '상급 재련 경험치 30 추가 증가 및 선조의 가호 재충전',
-  ['테메르의 정']: '상급 재련 경험치 10 추가 증가 및 다음 상급 재련 시 무료',
-};
+// const ancestorProtectionInfo: AncestorProtectionInfo = {
+//   ['갈라투르의 망치']: '상급 재련 경험치 5배 증가',
+//   ['겔라르의 칼']: '상급 재련 경험치 3배 증가',
+//   ['쿠훔바르의 모루']: '상급 재련 경험치 30 추가 증가 및 선조의 가호 재충전',
+//   ['테메르의 정']: '상급 재련 경험치 10 추가 증가 및 다음 상급 재련 시 무료',
+// };
 const defaultPercent: AncestorProtectionPercent = {
   ['갈라투르의 망치']: 15,
   ['겔라르의 칼']: 35,

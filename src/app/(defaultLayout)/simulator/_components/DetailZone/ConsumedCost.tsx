@@ -7,10 +7,8 @@ type Props = {
   count: number;
 };
 export default function ConsumedCost({ costType, count }: Props) {
-  const price = 260;
-
+  const price = 0.01; // 실링 상자 (1000 골드 = 10만 실링)
   const isGold = costType === '골드';
-  const zosa = costType === '명예의 파편' ? '개' : costType;
 
   return (
     <div className={styles.container}>
@@ -20,7 +18,7 @@ export default function ConsumedCost({ costType, count }: Props) {
         <div className={styles.countZone}>
           {!isGold && <span className={styles.comment}>소모 재화:</span>}
           <span>
-            {count} {zosa}
+            {count} {costType}
           </span>
         </div>
         <div className={styles.costZone}>
