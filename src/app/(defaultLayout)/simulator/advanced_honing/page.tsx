@@ -7,11 +7,14 @@ import RequireMaterials from '@/app/(defaultLayout)/simulator/_components/Requir
 import AuxiliaryMaterials from '@/app/(defaultLayout)/simulator/_components/AuxiliaryMaterials';
 import CostZone from '@/app/(defaultLayout)/simulator/_components/CostZone';
 import TitledBox from '@/app/_components/TitledBox';
-import ControlZone from '@/app/(defaultLayout)/simulator/_components/ControlZone/ControlZone';
+import { ControlZone } from '@/app/(defaultLayout)/simulator/_components/ControlZone';
+import { DetailZone } from '@/app/(defaultLayout)/simulator/_components/DetailZone';
+import StoreInitializer from '@/app/(defaultLayout)/simulator/_business/StoreInitializer';
 
 export default function AdvancedHoning() {
   return (
     <div className={styles.container}>
+      <StoreInitializer />
       <TitledBox
         title={'상급 재련'}
         light={true}
@@ -33,6 +36,7 @@ export default function AdvancedHoning() {
         </div>
         <CostZone className={styles.gapedContent} />
       </TitledBox>
+      <DetailZone />
       <ControlZone />
     </div>
   );

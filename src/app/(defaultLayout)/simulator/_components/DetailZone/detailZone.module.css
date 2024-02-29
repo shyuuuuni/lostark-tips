@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: calc(100dvh - 2 * 7rem);
+    top: 7rem;
+    z-index: var(--z-index-layout);
+    background-color: hsl(var(--ui-color-background-100), 0.5);
+    backdrop-filter: saturate(140%) blur(12px);
+    padding: 2.4rem;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    align-items: center;
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2.4rem;
+}
+.closeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 8px;
+    transition: background-color 150ms ease;
+}
+.contentZone {
+    display: flex;
+    flex-direction: column;
+}
+.contentZone > div:first-child {
+    color: hsl(var(--font-color-light));
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .closeBtn:hover {
+        background-color: hsl(var(--ui-color-background-070));
+        cursor: pointer;
+    }
+}
+.closeBtn > svg {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+.closeBtn > svg > path {
+    stroke: hsl(var(--font-color-default));
+}
+
+@media screen and (min-width: 769px) {
+}
+@media screen and (max-width: 768px) {
+}

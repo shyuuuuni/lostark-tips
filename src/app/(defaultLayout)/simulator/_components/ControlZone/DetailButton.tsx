@@ -1,9 +1,14 @@
 'use client';
 
 import styles from '@/app/(defaultLayout)/simulator/_components/ControlZone/detailButton.module.css';
+import { useDetailZoneStore } from '@/app/(defaultLayout)/simulator/_stores/useDetailZoneStore';
 
 export default function DetailButton() {
-  const onClick = () => {};
+  const toggleDetailZone = useDetailZoneStore((store) => store.toggleOpen);
+
+  const onClick = () => {
+    toggleDetailZone();
+  };
 
   return (
     <button className={styles.detailBtn} onClick={onClick}>

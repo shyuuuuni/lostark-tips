@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.history {
+    display: flex;
+    flex-direction: row;
+    background-color: hsl(var(--ui-color-background-080));
+    padding: 0.8rem;
+    border-radius: 4px;
+}
+.leftHistoryZone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.leftTopHistoryZone {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+.refiningType {
+    width: 5.6rem;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 0.8rem;
+    padding: 1.2rem 0.8rem 1.2rem 0.8rem;
+    color: rgb(155, 182, 131);
+    border: 1px solid rgb(155, 182, 131);
+}
+.refiningType.greatSuccess {
+    color: rgb(189, 172, 106);
+    font-weight: bold;
+    border: 1px solid rgb(189, 172, 106);
+    background-color: hsl(48, 39%, 58%, 0.1);
+}
+.expHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.expHistory > div:nth-child(2) {
+    color: hsl(var(--font-color-comment));
+}
+.leftBottomHistoryZone {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    color: hsl(var(--font-color-comment));
+}
+.divBar {
+    width: 1px;
+    border-left: 1px solid hsl(var(--line-color-highlight));
+}
+.levelUp {
+    color: hsl(48, 39%, 58%, 0.8);
+}
+.rightHistoryZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ancestorProtectionType {
+    font-size: 1.4rem;
+    border-radius: 0.8rem;
+    border: 1px solid hsl(var(--orange), 0.8);
+    color: hsl(var(--orange), 0.8);
+    padding: 0.8rem;
+}
+@media (hover: hover) and (pointer: fine) {
+    .ancestorProtectionType:hover {
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .container {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 768px) {
+}

@@ -2,11 +2,15 @@
 
 import styles from './resetButton.module.css';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
+import { useDetailZoneStore } from '@/app/(defaultLayout)/simulator/_stores/useDetailZoneStore';
 
 export default function ResetButton() {
   const reset = useAdvancedRefiningSimulatorStore((store) => store.reset);
-
-  const onClick = () => reset();
+  const closeDetailZone = useDetailZoneStore((store) => store.close);
+  const onClick = () => {
+    reset();
+    closeDetailZone();
+  };
 
   return (
     <button className={styles.resetBtn} onClick={onClick}>

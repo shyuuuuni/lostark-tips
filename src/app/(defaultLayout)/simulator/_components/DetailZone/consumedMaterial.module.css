@@ -1,0 +1,62 @@
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    background-color: hsl(var(--ui-color-background-080));
+    padding: 0.8rem;
+    border-radius: 4px;
+    gap: 0.8rem;
+    box-sizing: border-box;
+}
+.material {
+    border-radius: 12px;
+}
+.leftSection {
+    width: 6.4rem;
+    height: 6.4rem;
+}
+.name {
+    font-size: 1.4rem;
+    flex: 1;
+}
+.countZone {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    color: hsl(var(--font-color-light));
+    gap: 0.4rem;
+}
+.comment {
+    font-size: 1rem;
+    color: hsl(var(--font-color-comment));
+}
+.light {
+    color: hsl(var(--font-color-light));
+}
+.rightSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.costZone {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.4rem;
+    color: hsl(var(--font-color-comment));
+}
+.totalGold {
+    font-size: 1.2rem;
+    color: hsl(var(--font-color-light));
+}
+
+@media screen and (min-width: 769px) {
+    .container {
+    }
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        gap: 2rem;
+    }
+}
