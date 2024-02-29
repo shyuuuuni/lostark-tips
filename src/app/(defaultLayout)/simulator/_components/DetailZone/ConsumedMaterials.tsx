@@ -1,8 +1,20 @@
 import styles from './consumedMaterials.module.css';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
-import { AuxiliaryMaterial, Material as MaterialType } from '@/type/material';
+import {
+  AuxiliaryMaterial,
+  Cost,
+  Material as MaterialType,
+} from '@/type/material';
 import { useMemo } from 'react';
 import ConsumedMaterial from '@/app/(defaultLayout)/simulator/_components/DetailZone/ConsumedMaterial';
+import ConsumedCost from '@/app/(defaultLayout)/simulator/_components/DetailZone/ConsumedCost';
+
+const auxiliaryTypes: AuxiliaryMaterial[] = [
+  '태양의 은총',
+  '태양의 축복',
+  '태양의 가호',
+];
+const costTypes: Cost[] = ['명예의 파편', '실링', '골드'];
 
 export default function ConsumedMaterials() {
   const [equipmentType, accumulatedCost] = useAdvancedRefiningSimulatorStore(
@@ -16,11 +28,6 @@ export default function ConsumedMaterials() {
     ],
     [equipmentType],
   );
-  const auxiliaryTypes: AuxiliaryMaterial[] = [
-    '태양의 은총',
-    '태양의 축복',
-    '태양의 가호',
-  ];
 
   return (
     <div className={styles.container}>
@@ -39,6 +46,15 @@ export default function ConsumedMaterials() {
             key={materialType}
             materialType={materialType}
             count={accumulatedCost[materialType]}
+          />
+        ))}
+      </div>
+      <div className={styles.materialsZone}>
+        {costTypes.map((costType) => (
+          <ConsumedCost
+            key={costType}
+            costType={costType}
+            count={accumulatedCost[costType]}
           />
         ))}
       </div>

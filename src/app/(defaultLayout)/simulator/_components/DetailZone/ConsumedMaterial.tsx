@@ -17,7 +17,7 @@ export default function ConsumedMaterial({ materialType, count }: Props) {
         <div className={styles.name}>{materialType}</div>
         <div className={styles.countZone}>
           <span className={styles.comment}>소모 재화:</span>
-          <span>{count}개</span>
+          <span>{count} 개</span>
         </div>
         <div className={styles.costZone}>
           <span>환산 골드:</span>

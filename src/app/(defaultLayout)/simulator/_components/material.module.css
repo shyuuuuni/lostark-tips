@@ -1,4 +1,4 @@
-.stones {
+.common {
     background: linear-gradient(135deg, #232323, #575757);
 }
 .breakthroughStone {
@@ -16,6 +16,7 @@
 .solarProtection {
     background: linear-gradient(135deg, #261331, #480d5d);;
 }
+
 .container {
     display: flex;
     justify-content: center;
