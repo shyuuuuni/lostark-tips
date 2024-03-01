@@ -1,11 +1,7 @@
 'use client';
 
 import styles from '@/app/(defaultLayout)/simulator/_components/DetailZone/consumedMaterial.module.css';
-import {
-  AuxiliaryMaterial,
-  Cost,
-  Material as MaterialType,
-} from '@/type/material';
+import { AuxiliaryMaterial, Material as MaterialType } from '@/type/material';
 import Material from '@/app/(defaultLayout)/simulator/_components/Material';
 import { getItemPrice } from '@/app/_apis/market';
 import { useQuery } from '@tanstack/react-query';

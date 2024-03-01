@@ -10,6 +10,7 @@ import TitledBox from '@/app/_components/TitledBox';
 import { ControlZone } from '@/app/(defaultLayout)/simulator/_components/ControlZone';
 import { DetailZone } from '@/app/(defaultLayout)/simulator/_components/DetailZone';
 import StoreInitializer from '@/app/(defaultLayout)/simulator/_business/StoreInitializer';
+import PrefetchMarketPrice from '@/app/(defaultLayout)/simulator/_business/PrefetchMarketPrice';
 
 export default function AdvancedHoning() {
   return (
@@ -36,7 +37,9 @@ export default function AdvancedHoning() {
         </div>
         <CostZone className={styles.gapedContent} />
       </TitledBox>
-      <DetailZone />
+      <PrefetchMarketPrice>
+        <DetailZone />
+      </PrefetchMarketPrice>
       <ControlZone />
     </div>
   );
