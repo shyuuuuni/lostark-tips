@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1.6rem;
+    border: 1px solid hsl(var(--line-color-default));
+    border-radius: 4px;
+    overflow-x: scroll;
+}
+.titleZone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    color: hsl(var(--font-color-light))
+}
+.controlBtn {
+    font-size: 1.2rem;
+    background-color: hsl(var(--ui-color-background-060));
+    color: hsl(var(--font-color-default));
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    border: 0;
+    outline: 0;
+}
+.controlBtn:hover {
+    cursor: pointer;
+}
+.divBar {
+    width: calc(100% + 2 * 1.6rem);
+    margin: 0.8rem -1.6rem 1.6rem -1.6rem;
+    height: 1px;
+    border-bottom: 1px solid hsl(var(--line-color-default));
+}
+.materialsZone {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+.materialAmount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(144, 4, 3);
+    font-size: 1.6rem;
+}
+.materialAmount.selected {
+    color: rgb(155, 182, 131);
+}
+.materialZone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+}
+@media (hover: hover) and (pointer: fine) {
+    .materialZone:hover {
+        cursor: pointer;
+        background-color: hsl(var(--ui-color-background-070));
+        border-radius: 4px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .container {
+        max-width: 350px;
+    }
+    .materialZone {
+        transition: background-color 150ms ease;
+    }
+ }
+@media screen and (max-width: 768px) {
+    .materialZone {
+        flex: 1;
+    }
+}

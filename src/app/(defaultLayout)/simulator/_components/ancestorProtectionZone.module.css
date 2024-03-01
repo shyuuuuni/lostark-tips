@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.8rem;
+}
+.label {
+    font-size: 1.6rem;
+    color: rgb(216, 202, 187);
+    cursor: pointer;
+}
+.label:hover {
+    font-weight: bold;
+}
+.label:focus {
+    font-weight: bold;
+}
+.ancestorProtectionList {
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 0.8rem;
+}
+.ancestorProtectionItem {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: hsl(var(--orange), 0.3);
+    display: inline-block;
+    transition: background 0.5s ease-in-out;
+}
+.ancestorProtectionItem.selected {
+    background: hsl(var(--orange), 0.8);
+    box-shadow: 0 0 0.8rem hsl(var(--orange), 0.6);
+    transition: background 0.5s ease-in-out;
+}
+.ancestorProtectionItem.full {
+    background: hsl(var(--orange));
+    box-shadow: 0 0 1.2rem hsl(var(--orange), 0.8);
+    transition: background 0.5s ease-in-out;
+}
+.isFree {
+    display: flex;
+    text-align: center;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+}
+
+@media screen and (min-width: 769px) {
+}
+@media screen and (max-width: 768px) {
+}

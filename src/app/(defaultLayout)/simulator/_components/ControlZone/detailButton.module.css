@@ -1,0 +1,33 @@
+.detailBtn {
+    flex-shrink: 0;
+    width: 4.8rem;
+    height: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+    background-color: transparent;
+    border: 1px solid hsl(var(--ui-color-foreground-000));
+    border-radius: 2px;
+    transition: background-color 150ms ease, border 150ms ease;
+}
+.detailBtn > svg {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.detailBtn > svg > path {
+    stroke: hsl(var(--font-color-highlight));
+}
+.detailBtn > svg > circle {
+    stroke: hsl(var(--font-color-highlight));
+}
+
+@media screen and (min-width: 769px) {
+    .detailBtn:hover {
+        background-color: hsl(var(--line-fill-color-highlight));
+        border: 1px solid hsl(var(--ui-color-foreground-010));
+        cursor: pointer;
+    }
+}
+@media screen and (max-width: 768px) {
+}

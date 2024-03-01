@@ -1,0 +1,33 @@
+.container {
+    width: 100%;
+    height: 7rem;
+    position: fixed;
+    bottom: 0;
+    z-index: var(--z-index-layout);
+    background-color: hsl(var(--ui-color-background-100), 0.5);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-top: 1px solid hsl(var(--line-color-default));
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: scroll;
+}
+.buttonZone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 5rem 0 5rem;
+}
+
+@media screen and (min-width: 769px) {
+    .buttonZone {
+        max-width: 1200px;
+    }
+}
+@media screen and (max-width: 768px) {
+}
