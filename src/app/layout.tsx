@@ -30,7 +30,7 @@ export default function RootLayout({
         <SpeedInsights />
         <div id="tooltips-portal" />
       </body>
-      <GoogleAnalytics gaId={'GTM-TP63LWF8'} />
+      <GoogleAnalytics gaId={'G-NJ6JT3JXPP'} />
     </html>
   );
 }
