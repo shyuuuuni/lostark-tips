@@ -1,6 +1,7 @@
 import './global.css';
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -29,6 +30,7 @@ export default function RootLayout({
         <SpeedInsights />
         <div id="tooltips-portal" />
       </body>
+      <GoogleAnalytics gaId={'GTM-TP63LWF8'} />
     </html>
   );
 }
