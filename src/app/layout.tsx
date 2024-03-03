@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import React from 'react';
-import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import ReactQueryProvider from '@/app/_business/ReactQueryProvider';
 
@@ -26,11 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={notoSansKr.className}>
         <ReactQueryProvider>{children}</ReactQueryProvider>
-        <Analytics />
         <SpeedInsights />
         <div id="tooltips-portal" />
       </body>
-      <GoogleAnalytics gaId={'G-NJ6JT3JXPP'} />
+      <GoogleAnalytics gaId="G-NJ6JT3JXPP" />
     </html>
   );
 }
