@@ -25,6 +25,10 @@
     display: flex;
     align-items: center;
     gap: 2.4rem;
+    overflow-x: scroll;
+}
+.leftNavZone > a {
+    flex-shrink: 0;
 }
 .rightNavZone {
     display: flex;
@@ -36,38 +40,80 @@
     width: 15.1rem;
     height: 5rem;
 }
+.tooltip {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    padding: 0.4rem;
+    transition: background 0.25s ease-in-out;
+    border-radius: 2px;
+}
+@media (hover: hover) and (pointer: fine) {
+    .tooltip:hover {
+        cursor: pointer;
+        background-color: hsl(var(--bg-box-color-default));
+    }
+}
+.tooltip > span:first-child {
+    font-size: 1.2rem;
+    color: hsl(var(--font-color-light));
+}
+.tooltip > span:last-child {
+    font-size: 1.2rem;
+    color: hsl(var(--font-color-highlight));
+}
+.inquireBtn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    padding: 0 2rem 0 2rem;
+    border-radius: 6px;
+    border: 1px solid hsl(var(--line-color-default));
+    color: hsl(var(--font-color-default));
+    background-color: hsl(var(--line-fill-color-default));
+    transition-property: border, color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+}
+.inquireBtn:hover {
+    cursor: pointer;
+    border: 1px solid hsl(var(--line-color-highlight));
+    color: hsl(var(--font-color-highlight));
+    background-color: hsl(var(--line-fill-color-highlight));
+}
 
 @media screen and (min-width: 769px) {
-    .inquireBtn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 4rem;
-        padding: 0 2rem 0 2rem;
-        border-radius: 6px;
-        border: 1px solid hsl(var(--line-color-default));
-        color: hsl(var(--font-color-default));
-        background-color: hsl(var(--line-fill-color-default));
-        transition-property: border, color, background-color;
-        transition-duration: 300ms;
-        transition-timing-function: ease;
-    }
-    .inquireBtn:hover {
-        cursor: pointer;
-        border: 1px solid hsl(var(--line-color-highlight));
-        color: hsl(var(--font-color-highlight));
-        background-color: hsl(var(--line-fill-color-highlight));
-    }
+    /*.inquireBtn {*/
+    /*    display: flex;*/
+    /*    align-items: center;*/
+    /*    justify-content: center;*/
+    /*    height: 4rem;*/
+    /*    padding: 0 2rem 0 2rem;*/
+    /*    border-radius: 6px;*/
+    /*    border: 1px solid hsl(var(--line-color-default));*/
+    /*    color: hsl(var(--font-color-default));*/
+    /*    background-color: hsl(var(--line-fill-color-default));*/
+    /*    transition-property: border, color, background-color;*/
+    /*    transition-duration: 300ms;*/
+    /*    transition-timing-function: ease;*/
+    /*}*/
+    /*.inquireBtn:hover {*/
+    /*    cursor: pointer;*/
+    /*    border: 1px solid hsl(var(--line-color-highlight));*/
+    /*    color: hsl(var(--font-color-highlight));*/
+    /*    background-color: hsl(var(--line-fill-color-highlight));*/
+    /*}*/
     .rightNavZone > div:not(:first-child) {
         display: none;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .leftNavZone > a:not(:first-child) {
-        display: none;
-    }
-    .inquireBtn {
-        display: none;
-    }
+    /*.leftNavZone > a:not(:first-child) {*/
+    /*    display: none;*/
+    /*}*/
 }
