@@ -6,7 +6,9 @@ export const fetchCristalPrice = async () => {
   const res = await fetch(
     'https://loatool.taeu.kr/api/crystal-history/ohlc/1d',
     // 외부 API 호출이기 때문에 revalidate 기간을 늘림
-    { next: { tags: ['cristal', 'price'], revalidate: 36000 } },
+    {
+      next: { tags: ['cristal', 'price'], revalidate: 36000 },
+    },
   );
   const data = (await res.json()) as CristalApiResponse[];
   const closestData = findClosestCristalPrice(data);
