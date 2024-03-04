@@ -1,6 +1,5 @@
-import { MarketItemStats } from '@/type/market';
+import { MarketItemStats, SalableItem } from '@/type/market';
 import { itemIds } from '@/app/_lib/market';
-import { AuxiliaryMaterial, Material } from '@/type/material';
 
 export const fetchMarketItem = async (itemId: string) => {
   const res = await fetch(
@@ -19,9 +18,7 @@ export const fetchMarketItem = async (itemId: string) => {
   return data[0];
 };
 
-export const getItemPrice = async (
-  itemName: Material | AuxiliaryMaterial | '명예의 파편',
-) => {
+export const getItemPrice = async (itemName: SalableItem) => {
   const itemId = itemIds[itemName];
   const itemStats = await fetchMarketItem(itemId);
 

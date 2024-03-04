@@ -1,13 +1,13 @@
 'use client';
 
 import styles from '@/app/(defaultLayout)/simulator/_components/DetailZone/consumedMaterial.module.css';
-import { AuxiliaryMaterial, Material as MaterialType } from '@/type/material';
 import Material from '@/app/(defaultLayout)/simulator/_components/Material';
 import { getItemPrice } from '@/app/_apis/market';
 import { useQuery } from '@tanstack/react-query';
+import { SalableItem } from '@/type/market';
 
 type Props = {
-  materialType: MaterialType | AuxiliaryMaterial | '명예의 파편';
+  materialType: SalableItem;
   count: number;
 };
 

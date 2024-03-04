@@ -1,3 +1,5 @@
+import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
+
 export type MarketStatsInfo = {
   Date: string;
   AvgPrice: number;
@@ -11,3 +13,8 @@ export type MarketItemStats = {
   Stats: MarketStatsInfo[];
   ToolTip: string;
 };
+
+export type SalableItem =
+  | Material
+  | AuxiliaryMaterial
+  | Extract<Cost, '명예의 파편'>;
