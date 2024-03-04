@@ -5,26 +5,13 @@ import isBetween from 'dayjs/plugin/isBetween';
 
 dayjs.extend(isBetween);
 
-export interface AtomItem {
-  itemType: SalableItem | Extract<Cost, '크리스탈'>;
+export type ItemType = SalableItem | Exclude<Cost, '골드'>;
+
+export class AtomItem {
   count: number;
-}
+  itemType: ItemType;
 
-export class SalableAtomItem implements AtomItem {
-  count: number;
-  itemType: SalableItem;
-
-  constructor(itemType: SalableItem, count: number) {
-    this.itemType = itemType;
-    this.count = count;
-  }
-}
-
-export class CristalAtomItem implements AtomItem {
-  count: number;
-  itemType: '크리스탈';
-
-  constructor(itemType: '크리스탈', count: number) {
+  constructor(itemType: ItemType, count: number) {
     this.itemType = itemType;
     this.count = count;
   }
