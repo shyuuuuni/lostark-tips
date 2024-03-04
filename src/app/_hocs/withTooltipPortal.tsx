@@ -1,6 +1,5 @@
-import TooltipPortal from '@/app/_components/TooltipPortal';
-import { jsx } from '@emotion/react';
-import IntrinsicAttributes = jsx.JSX.IntrinsicAttributes;
+import TooltipPortal from '@/app/_business/TooltipPortal';
+import IntrinsicAttributes = React.JSX.IntrinsicAttributes;
 
 export default function withTooltipPortal<P extends IntrinsicAttributes>(
   TooltipComponent: React.ComponentType<P>,
