@@ -10,9 +10,15 @@ export const advancedRefiningLevel = [
 ] as const;
 export type AdvancedRefiningLevel = (typeof advancedRefiningLevel)[number];
 
+export type AdvancedRefiningMaterial = Exclude<
+  Material,
+  '경이로운 명예의 돌파석' | '상급 오레하 융화 재료'
+>;
+export type AdvancedRefiningCost = Exclude<Cost, '크리스탈'>;
+
 // 상급 재련 재료/비용 소모량
 export type AdvancedRefiningRequirements = {
-  [key in Material | Cost]: number;
+  [key in AdvancedRefiningMaterial | AdvancedRefiningCost]: number;
 };
 
 // 상급 재련 추가 재료 소모량

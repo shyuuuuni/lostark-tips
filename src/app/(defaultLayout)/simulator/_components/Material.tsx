@@ -24,7 +24,7 @@ const getBackgroundClassName = (
   switch (materialType) {
     case '찬란한 명예의 돌파석':
       return styles.breakthroughStone;
-    case '최상급 오레하 융화재료':
+    case '최상급 오레하 융화 재료':
       return styles.fusion;
     case '태양의 은총':
       return styles.solarGrace;
@@ -55,7 +55,7 @@ const MaterialImage = ({
     case '찬란한 명예의 돌파석':
       src = material03Pic;
       break;
-    case '최상급 오레하 융화재료':
+    case '최상급 오레하 융화 재료':
       src = material04Pic;
       break;
     case '태양의 은총':
