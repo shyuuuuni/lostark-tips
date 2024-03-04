@@ -4,7 +4,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { getItemPrice } from '@/app/_apis/market';
-import { SalableItem } from '@/type/market';
+import { SalableItem } from '@/app/_type/market';
 
 type Props = {
   children: React.ReactNode;

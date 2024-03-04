@@ -1,4 +1,4 @@
-import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
+import { AuxiliaryMaterial, Cost, Material } from '@/app/_type/material';
 
 export type MarketStatsInfo = {
   Date: string;

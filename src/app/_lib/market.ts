@@ -1,4 +1,4 @@
-import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
+import { AuxiliaryMaterial, Cost, Material } from '@/app/_type/material';
 
 export const itemIds: { [key in Material | AuxiliaryMaterial | Cost]: string } =
   {

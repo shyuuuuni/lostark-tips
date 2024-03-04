@@ -1,4 +1,4 @@
-import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
+import { AuxiliaryMaterial, Cost, Material } from '@/app/_type/material';
 import styles from './material.module.css';
 import clsx from 'clsx';
 import material01Pic from '@assets/materials/material_01.png';

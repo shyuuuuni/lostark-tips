@@ -4,7 +4,7 @@ import styles from '@/app/(defaultLayout)/simulator/_components/DetailZone/consu
 import Material from '@/app/(defaultLayout)/simulator/_components/Material';
 import { getItemPrice } from '@/app/_apis/market';
 import { useQuery } from '@tanstack/react-query';
-import { SalableItem } from '@/type/market';
+import { SalableItem } from '@/app/_type/market';
 
 type Props = {
   materialType: SalableItem;

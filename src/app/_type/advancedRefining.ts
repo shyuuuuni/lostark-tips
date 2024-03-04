@@ -1,5 +1,5 @@
-import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
-import { EquipmentType } from '@/type/equipment';
+import { AuxiliaryMaterial, Cost, Material } from '@/app/_type/material';
+import { EquipmentType } from '@/app/_type/equipment';
 
 // 상급 재련 결과 종류
 export type AdvancedRefiningTrialType = '성공' | '대성공' | '대성공x2' | '실패';

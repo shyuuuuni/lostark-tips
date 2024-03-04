@@ -1,4 +1,4 @@
-import { CristalApiResponse } from '@/type/cristal';
+import { CristalApiResponse } from '@/app/_type/cristal';
 import dayjs from 'dayjs';
 
 export const findClosestCristalPrice = (

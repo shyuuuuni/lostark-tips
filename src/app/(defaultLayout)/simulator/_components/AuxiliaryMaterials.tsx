@@ -4,7 +4,7 @@ import styles from './auxiliaryMaterials.module.css';
 import clsx from 'clsx';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import { getAuxiliaryMaterial } from '@/app/(defaultLayout)/simulator/_lib/materials';
-import { AuxiliaryMaterial } from '@/type/material';
+import { AuxiliaryMaterial } from '@/app/_type/material';
 import Material from '@/app/(defaultLayout)/simulator/_components/Material';
 
 export default function AuxiliaryMaterials() {

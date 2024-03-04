@@ -4,7 +4,7 @@ import styles from './refiningHistory.module.css';
 
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import dayjs from 'dayjs';
-import { AdvancedRefiningSimulationHistory } from '@/type/advancedRefining';
+import { AdvancedRefiningSimulationHistory } from '@/app/_type/advancedRefining';
 import clsx from 'clsx';
 
 const getIncrement = (history: AdvancedRefiningSimulationHistory) => {

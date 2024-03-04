@@ -1,4 +1,4 @@
-import { MarketItemStats, SalableItem } from '@/type/market';
+import { MarketItemStats, SalableItem } from '@/app/_type/market';
 import { itemIds } from '@/app/_lib/market';
 
 export const fetchMarketItem = async (itemId: string) => {

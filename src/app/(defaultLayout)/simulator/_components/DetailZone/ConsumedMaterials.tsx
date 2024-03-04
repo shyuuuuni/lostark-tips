@@ -1,13 +1,13 @@
 import styles from './consumedMaterials.module.css';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
-import { AuxiliaryMaterial } from '@/type/material';
+import { AuxiliaryMaterial } from '@/app/_type/material';
 import { useMemo } from 'react';
 import ConsumedMaterial from '@/app/(defaultLayout)/simulator/_components/DetailZone/ConsumedMaterial';
 import ConsumedCost from '@/app/(defaultLayout)/simulator/_components/DetailZone/ConsumedCost';
 import {
   AdvancedRefiningCost,
   AdvancedRefiningMaterial,
-} from '@/type/advancedRefining';
+} from '@/app/_type/advancedRefining';
 
 const auxiliaryTypes: AuxiliaryMaterial[] = [
   '태양의 은총',

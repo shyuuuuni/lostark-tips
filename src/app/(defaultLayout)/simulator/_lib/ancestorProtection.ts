@@ -1,4 +1,4 @@
-import { AncestorProtection } from '@/type/advancedRefining';
+import { AncestorProtection } from '@/app/_type/advancedRefining';
 
 type AncestorProtectionPercent = {
   [key in AncestorProtection]: number;

@@ -1,7 +1,7 @@
 import {
   AdvancedRefiningTrialType,
   UsingAuxiliary,
-} from '@/type/advancedRefining';
+} from '@/app/_type/advancedRefining';
 
 type RefiningPercent = {
   [key in AdvancedRefiningTrialType]: number;

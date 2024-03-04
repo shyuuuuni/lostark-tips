@@ -1,9 +1,9 @@
-import { EquipmentType } from '@/type/equipment';
+import { EquipmentType } from '@/app/_type/equipment';
 import {
   AdvancedRefiningAuxiliaryRequirements,
   AdvancedRefiningLevel,
   AdvancedRefiningRequirements,
-} from '@/type/advancedRefining';
+} from '@/app/_type/advancedRefining';
 
 type RefiningMaterialTable = {
   [key: string]: AdvancedRefiningRequirements;

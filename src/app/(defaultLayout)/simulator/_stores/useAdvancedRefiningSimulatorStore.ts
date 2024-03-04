@@ -12,7 +12,7 @@ import {
   getAuxiliaryMaterial,
   getRefiningMaterials,
 } from '@/app/(defaultLayout)/simulator/_lib/materials';
-import { EquipmentType } from '@/type/equipment';
+import { EquipmentType } from '@/app/_type/equipment';
 import {
   AdvancedRefiningAuxiliaryRequirements,
   AdvancedRefiningCost,
@@ -23,8 +23,8 @@ import {
   AncestorProtection,
   AncestorProtectionCount,
   UsingAuxiliary,
-} from '@/type/advancedRefining';
-import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
+} from '@/app/_type/advancedRefining';
+import { AuxiliaryMaterial, Cost, Material } from '@/app/_type/material';
 
 type AdvancedRefiningSimulatorState = {
   equipmentType: EquipmentType;

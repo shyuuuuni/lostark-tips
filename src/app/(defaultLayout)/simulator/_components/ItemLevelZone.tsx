@@ -8,7 +8,7 @@ import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulat
 import {
   AdvancedRefiningLevel,
   advancedRefiningLevel,
-} from '@/type/advancedRefining';
+} from '@/app/_type/advancedRefining';
 
 type LevelSelectOption = { value: AdvancedRefiningLevel; label: string };
 

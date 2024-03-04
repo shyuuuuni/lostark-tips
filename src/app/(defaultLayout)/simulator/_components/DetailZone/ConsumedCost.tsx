@@ -1,5 +1,5 @@
 import styles from './consumedCost.module.css';
-import { Cost } from '@/type/material';
+import { Cost } from '@/app/_type/material';
 import Material from '@/app/(defaultLayout)/simulator/_components/Material';
 
 type Props = {
