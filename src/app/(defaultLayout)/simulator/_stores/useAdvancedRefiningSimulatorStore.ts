@@ -24,7 +24,7 @@ import {
   AncestorProtectionCount,
   UsingAuxiliary,
 } from '@/app/_type/advancedRefining';
-import { AuxiliaryMaterial, Cost, Material } from '@/app/_type/material';
+import { AuxiliaryMaterial } from '@/app/_type/material';
 
 type AdvancedRefiningSimulatorState = {
   equipmentType: EquipmentType;

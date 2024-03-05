@@ -1,10 +1,10 @@
-import { AtomItems } from '@/app/_type/package';
+import { ItemType } from '@/app/_type/package';
 import { useQueries } from '@tanstack/react-query';
 import { getItemPrice } from '@/app/_apis/market';
 import { fetchCristalPrice } from '@/app/_apis/cristal';
 import { useEffect, useState } from 'react';
 
-export default function useAtomItemsPrice(atomItems: AtomItems) {
+export default function useAtomItemsPrice(atomItems: Map<ItemType, number>) {
   const [price, setPrice] = useState(0);
 
   const itemTypes = Array.from(atomItems.keys());
@@ -43,7 +43,7 @@ export default function useAtomItemsPrice(atomItems: AtomItems) {
       }
     });
     setPrice(_price);
-  }, [results]);
+  }, [atomItems, itemTypes, results]);
 
   return price;
 }

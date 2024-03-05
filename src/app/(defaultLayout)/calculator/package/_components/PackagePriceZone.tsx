@@ -2,11 +2,11 @@
 
 import styles from '@/app/(defaultLayout)/calculator/package/_components/package.module.css';
 import clsx from 'clsx';
-import { AtomItems } from '@/app/_type/package';
+import { ItemType } from '@/app/_type/package';
 import useAtomItemsPrice from '@/app/(defaultLayout)/calculator/package/_hooks/useAtomItemsPrice';
 
 type Props = {
-  packageAtomItems: AtomItems;
+  packageAtomItems: Map<ItemType, number>;
   packagePrice: number;
   bonusOptions?: {
     bonusCount: number;
