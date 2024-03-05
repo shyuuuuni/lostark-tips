@@ -137,6 +137,13 @@ body{
 ::-webkit-scrollbar {
     display: none;
 }
+li, ul {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6, li, p, ul {
+    margin: 0;
+    padding: 0;
+}
 
 /* 리액트 렌더링 영역과 독립된 영역 */
 #tooltips-portal {

@@ -5,7 +5,7 @@ type Props = {
   title: string;
   light?: boolean;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export default function TitledBox({
