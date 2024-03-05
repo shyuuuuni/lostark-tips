@@ -2,8 +2,30 @@ import { SalableItem } from '@/app/_type/market';
 import { Cost } from '@/app/_type/material';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
+import shopIconImg from '@assets/shop-icons/shop_icon_default.webp';
+import { StaticImageData } from 'next/image';
 
 dayjs.extend(isBetween);
+
+export class AtomItems extends Map<ItemType, number> {
+  constructor() {
+    super();
+  }
+
+  addItem(itemType: ItemType, count: number) {
+    this.set(itemType, (this.get(itemType) ?? 0) + count);
+  }
+  merge(other: AtomItems) {
+    other.forEach((count, itemType) => {
+      this.addItem(itemType, count);
+    });
+  }
+  multiply(n: number) {
+    this.forEach((_, itemType) => {
+      this.set(itemType, (this.get(itemType) ?? 0) * n);
+    });
+  }
+}
 
 export type ItemType = SalableItem | Exclude<Cost, '골드'>;
 
@@ -40,6 +62,31 @@ export class PackedItem {
     this.packedType = packedType;
   }
 
+  // itemType === '모두 받기'
+  getAtomItems() {
+    const atomItems = new AtomItems();
+    this.contents.forEach(({ content, percent }) => {
+      if (percent === 100 && content instanceof AtomItem) {
+        atomItems.addItem(content.itemType, content.count);
+        return;
+      }
+    });
+
+    return atomItems;
+  }
+
+  // itemType === '선택'
+  getSelectedAtomItems() {
+    return Array.from({ length: this.contents.length }, (_, i) => {
+      const atomItems = new AtomItems();
+      const { content, percent } = this.contents[i];
+      if (percent === 100 && content instanceof AtomItem) {
+        atomItems.addItem(content.itemType, content.count);
+      }
+      return atomItems;
+    });
+  }
+
   static Builder = class {
     options: PackedItemOptions;
 
@@ -74,6 +121,7 @@ export type PackageItem = {
 export type SaleDate = '제한 없음' | [string, null] | [string, string]; // null 인 경우 판매 종료일 추후 안내
 
 export interface PackageOptions {
+  id: string;
   name: string;
   purchaseLimit: number; // 0 or integer
   price: number; // 0 or integer - 현금 or 크리스탈
@@ -82,9 +130,11 @@ export interface PackageOptions {
   repurchaseCycle: RepurchaseCycle;
   packageItems: PackageItem[];
   saleDate: SaleDate;
+  image: StaticImageData;
 }
 
 export class Package {
+  id: string;
   name: string;
   purchaseLimit: number; // 0 or integer
   price: number; // 0 or integer - 현금 or 크리스탈
@@ -93,8 +143,10 @@ export class Package {
   repurchaseCycle: RepurchaseCycle;
   packageItems: PackageItem[];
   saleDate: SaleDate;
+  image: StaticImageData;
 
   constructor({
+    id,
     name,
     purchaseLimit,
     price,
@@ -103,7 +155,9 @@ export class Package {
     repurchaseCycle,
     packageItems,
     saleDate,
+    image,
   }: PackageOptions) {
+    this.id = id;
     this.name = name;
     this.purchaseLimit = purchaseLimit;
     this.price = price;
@@ -112,6 +166,49 @@ export class Package {
     this.repurchaseCycle = repurchaseCycle;
     this.packageItems = packageItems;
     this.saleDate = saleDate;
+    this.image = image;
+  }
+
+  getAllItems() {
+    const atomItems = new AtomItems(),
+      selectedAtomItems: AtomItems[][] = [];
+
+    this.packageItems.forEach(({ packedItem, count }) => {
+      if (packedItem.packedType === '모두 받기') {
+        const _atomItems = packedItem.getAtomItems();
+        _atomItems.multiply(count);
+        atomItems.merge(_atomItems);
+        return;
+      }
+      if (packedItem.packedType === '선택') {
+        const _selected = packedItem.getSelectedAtomItems();
+        _selected.forEach((_atomItems) => _atomItems.multiply(count));
+        selectedAtomItems.push(_selected);
+        return;
+      }
+    });
+
+    return { atomItems, selectedAtomItems };
+  }
+  getDefaultItems(
+    { selectOption }: { selectOption: 'first' | 'last' } = {
+      selectOption: 'last',
+    },
+  ) {
+    const { atomItems, selectedAtomItems } = this.getAllItems();
+
+    selectedAtomItems
+      .map((_selectedAtomItems) => {
+        if (selectOption === 'first') {
+          return _selectedAtomItems[0];
+        }
+        return _selectedAtomItems[_selectedAtomItems.length - 1];
+      })
+      .forEach((_atomItems) => {
+        atomItems.merge(_atomItems);
+      });
+
+    return atomItems;
   }
 
   isOnSale() {
@@ -139,11 +236,13 @@ export class Package {
     options: PackageOptions;
 
     constructor(
+      id: string,
       name: string,
       price: number,
       priceType: '로얄 크리스탈' | '크리스탈',
     ) {
       this.options = {
+        id,
         name,
         price,
         priceType,
@@ -152,6 +251,7 @@ export class Package {
         repurchaseCycle: '무제한',
         packageItems: [],
         saleDate: '제한 없음',
+        image: shopIconImg,
       };
     }
 
@@ -168,6 +268,10 @@ export class Package {
     }
     setRepurchaseCycle(repurchaseCycle: '주간' | '월간' | '무제한') {
       this.options.repurchaseCycle = repurchaseCycle;
+      return this;
+    }
+    setImage(image: StaticImageData) {
+      this.options.image = image;
       return this;
     }
     addPackageItem(packedItem: PackedItem, count: number = 1, percent = 100) {

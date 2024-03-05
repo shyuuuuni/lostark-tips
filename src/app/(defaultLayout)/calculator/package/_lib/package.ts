@@ -5,12 +5,16 @@ import {
   최상급_돌파석_선택_상자,
   최상급_융화_재료_선택_상자,
 } from '@/app/(defaultLayout)/calculator/package/_lib/packedItem';
+import shopIconPcImg from '@assets/shop-icons/shop_icon_pcroom.webp';
+import shopIconGrowthImg from '@assets/shop-icons/shop_icon_growth.webp';
 
 const PC방_전용_돌파_파편_패키지_230913 = new Package.Builder(
+  '1',
   '[PC방 전용] 돌파&파편 패키지',
   33000,
   '로얄 크리스탈',
 )
+  .setImage(shopIconPcImg)
   .setSaleDate({ startDate: '2023-09-13', endDate: null })
   .setRepurchaseCycle('월간')
   .setPurchaseLimit(3)
@@ -20,10 +24,12 @@ const PC방_전용_돌파_파편_패키지_230913 = new Package.Builder(
   .build();
 
 const 주간_성장_재료_패키지_240228 = new Package.Builder(
+  '2',
   '[주간] 성장 재료 패키지',
   22000,
   '로얄 크리스탈',
 )
+  .setImage(shopIconGrowthImg)
   .setSaleDate({ startDate: '2024-02-28', endDate: null })
   .setRepurchaseCycle('주간')
   .setPurchaseLimit(2)

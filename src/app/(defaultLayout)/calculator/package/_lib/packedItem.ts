@@ -23,5 +23,5 @@ export const 명예의_파편_주머니_대 = new PackedItem.Builder(
   .build();
 
 export const 고대의_백금화 = new PackedItem.Builder('고대의 백금화')
-  .addContent(new AtomItem('실링', 20000), 60)
+  .addContent(new AtomItem('실링', 20000))
   .build();
