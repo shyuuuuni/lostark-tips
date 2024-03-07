@@ -6,6 +6,7 @@ import Test from '@/app/(defaultLayout)/calculator/package/_components/Test';
 import PrefetchMarketPrice from '@/app/_business/PrefetchMarketPrice';
 import PrefetchCristalPrice from '@/app/_business/PrefetchCristalPrice';
 import NavigationZone from '@/app/(defaultLayout)/_components/NavigationZone';
+import MaterialFilter from '@/app/(defaultLayout)/calculator/package/_components/MaterialFilter';
 
 const links = [
   {
@@ -18,7 +19,9 @@ export default function PackageCalculator() {
   return (
     <div className={styles.container}>
       <NavigationZone title={'계산기'} links={links} />
-      <TitledBox title="필터"></TitledBox>
+      <TitledBox title="필터">
+        <MaterialFilter />
+      </TitledBox>
       <TitledBox title="공식 패키지" className={styles.titledBoxContents}>
         <PrefetchMarketPrice>
           <PrefetchCristalPrice>

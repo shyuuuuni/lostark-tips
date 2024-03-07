@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.title {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.filterItems {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+}
+.filterItem {
+    flex-shrink: 0;
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    border-radius: 8px;
+    background-color: hsl(var(--ui-color-foreground-000));
+    color: hsl(var(--font-color-light));
+    transition: background-color 150ms ease, color 150ms ease;
+}
+.filterItem.selected {
+    background-color: hsl(var(--ui-color-foreground-020));
+    color: hsl(var(--font-color-highlight));
+}
+@media (hover: hover) and (pointer: fine) {
+    .filterItem:hover {
+        cursor: pointer;
+    }
+}
