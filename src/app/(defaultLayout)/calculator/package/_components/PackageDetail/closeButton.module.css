@@ -1,0 +1,23 @@
+.container {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 8px;
+    transition: background-color 150ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+    .container:hover {
+        background-color: hsl(var(--ui-color-background-070));
+        cursor: pointer;
+    }
+}
+.container > svg {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+.container > svg > path {
+    stroke: hsl(var(--font-color-default));
+}
