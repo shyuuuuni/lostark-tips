@@ -44,7 +44,7 @@ const 주간_성장_재료_패키지_240228 = new Package.Builder(
   .build();
 
 const 상급_보조_융화_패키지_240131 = new Package.Builder(
-  '2',
+  '3',
   '[3+1] 상급 보조&융화 패키지',
   55000,
   '로얄 크리스탈',
