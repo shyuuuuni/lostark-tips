@@ -10,6 +10,7 @@
     box-sizing: border-box;
     padding: 2.4rem;
     font-size: 1.4rem;
+    overflow-y: scroll;
 }
 .label {
     display: flex;
