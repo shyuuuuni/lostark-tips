@@ -1,7 +1,7 @@
 'use client';
 
 import styles from '@/app/(defaultLayout)/simulator/_components/DetailZone/consumedMaterial.module.css';
-import Material from '@/app/(defaultLayout)/simulator/_components/Material';
+import Material from '@/app/(defaultLayout)/_components/Material';
 import { SalableItem } from '@/app/_type/market';
 import useMaterialPrice from '@/app/_hooks/useMaterialPrice';
 

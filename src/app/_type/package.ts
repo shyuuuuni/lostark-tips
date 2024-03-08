@@ -14,16 +14,19 @@ export class AtomItems extends Map<ItemType, number> {
 
   addItem(itemType: ItemType, count: number) {
     this.set(itemType, (this.get(itemType) ?? 0) + count);
+    return this;
   }
   merge(other: AtomItems) {
     other.forEach((count, itemType) => {
       this.addItem(itemType, count);
     });
+    return this;
   }
   multiply(n: number) {
     this.forEach((_, itemType) => {
       this.set(itemType, (this.get(itemType) ?? 0) * n);
     });
+    return this;
   }
 }
 

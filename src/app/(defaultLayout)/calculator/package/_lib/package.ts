@@ -1,5 +1,9 @@
 import { Package } from '@/app/_type/package';
 import {
+  A_최상급_오레하_융화_재료,
+  태양의_가호,
+  태양의_은총,
+  태양의_축복,
   고대의_백금화,
   명예의_파편_주머니_대,
   최상급_돌파석_선택_상자,
@@ -39,7 +43,24 @@ const 주간_성장_재료_패키지_240228 = new Package.Builder(
   .addPackageItem(고대의_백금화, 60)
   .build();
 
+const 상급_보조_융화_패키지_240131 = new Package.Builder(
+  '2',
+  '[3+1] 상급 보조&융화 패키지',
+  55000,
+  '로얄 크리스탈',
+)
+  .setImage(shopIconGrowthImg)
+  .setSaleDate({ startDate: '2024-01-31', endDate: '2024-02-28' })
+  .setPurchaseLimit(3)
+  .setBonus(3)
+  .addPackageItem(태양의_은총, 800)
+  .addPackageItem(태양의_축복, 400)
+  .addPackageItem(태양의_가호, 150)
+  .addPackageItem(A_최상급_오레하_융화_재료, 200)
+  .addPackageItem(고대의_백금화, 100)
+  .build();
 export const packages: Package[] = [
   PC방_전용_돌파_파편_패키지_230913,
   주간_성장_재료_패키지_240228,
+  상급_보조_융화_패키지_240131,
 ];

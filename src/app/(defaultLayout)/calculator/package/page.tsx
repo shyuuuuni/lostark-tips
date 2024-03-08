@@ -33,11 +33,11 @@ export default function PackageCalculator() {
           </PrefetchCristalPrice>
         </PrefetchMarketPrice>
       </TitledBox>
-      <TitledBox title="커스텀 패키지">
-        <ul className={styles.packages}>
-          <Test />
-        </ul>
-      </TitledBox>
+      {/*<TitledBox title="커스텀 패키지">*/}
+      {/*  <ul className={styles.packages}>*/}
+      {/*    <Test />*/}
+      {/*  </ul>*/}
+      {/*</TitledBox>*/}
     </div>
   );
 }

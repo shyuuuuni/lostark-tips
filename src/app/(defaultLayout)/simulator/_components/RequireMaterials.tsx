@@ -7,7 +7,7 @@ import {
   isArmor,
   isWeapon,
 } from '@/app/(defaultLayout)/simulator/_lib/equipment';
-import Material from '@/app/(defaultLayout)/simulator/_components/Material';
+import Material from '@/app/(defaultLayout)/_components/Material';
 
 export default function RequireMaterials() {
   const [equipmentType, targetLevel, isFree] =

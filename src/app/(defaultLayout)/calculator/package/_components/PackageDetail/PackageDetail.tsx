@@ -4,7 +4,7 @@ import styles from './packageDetail.module.css';
 import { Package, SaleDate } from '@/app/_type/package';
 import CloseButton from '@/app/(defaultLayout)/calculator/package/_components/PackageDetail/CloseButton';
 import Image from 'next/image';
-import PackageItemsZone from '@/app/(defaultLayout)/calculator/package/_components/PackageDetail/packageItemsZone';
+import PackageItemsZone from '@/app/(defaultLayout)/calculator/package/_components/PackageDetail/PackageItemsZone';
 
 type Props = {
   targetPackage: Package;

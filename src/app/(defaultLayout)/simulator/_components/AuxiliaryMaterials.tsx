@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
 import { getAuxiliaryMaterial } from '@/app/(defaultLayout)/simulator/_lib/materials';
 import { AuxiliaryMaterial } from '@/app/_type/material';
-import Material from '@/app/(defaultLayout)/simulator/_components/Material';
+import Material from '@/app/(defaultLayout)/_components/Material';
 
 export default function AuxiliaryMaterials() {
   const [usingAuxiliary, toggleAuxiliary] = useAdvancedRefiningSimulatorStore(

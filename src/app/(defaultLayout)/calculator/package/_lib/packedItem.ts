@@ -25,3 +25,24 @@ export const 명예의_파편_주머니_대 = new PackedItem.Builder(
 export const 고대의_백금화 = new PackedItem.Builder('고대의 백금화')
   .addContent(new AtomItem('실링', 20000))
   .build();
+
+/**
+ * 아래는 단일 AtomItem 을 포함하는 PackedItem
+ */
+export const 태양의_은총 = new PackedItem.Builder('태양의 은총')
+  .addContent(new AtomItem('태양의 은총', 1))
+  .build();
+
+export const 태양의_축복 = new PackedItem.Builder('태양의 축복')
+  .addContent(new AtomItem('태양의 축복', 1))
+  .build();
+
+export const 태양의_가호 = new PackedItem.Builder('태양의 가호')
+  .addContent(new AtomItem('태양의 가호', 1))
+  .build();
+
+export const A_최상급_오레하_융화_재료 = new PackedItem.Builder(
+  '최상급 오레하 융화 재료',
+)
+  .addContent(new AtomItem('최상급 오레하 융화 재료', 1))
+  .build();

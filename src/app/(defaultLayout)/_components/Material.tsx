@@ -11,6 +11,8 @@ import auxiliary03Pic from '@assets/materials/auxiliary_03.png';
 import material05Pic from '@assets/materials/material_05.webp';
 import material06Pic from '@assets/materials/material_06.webp';
 import material07Pic from '@assets/materials/material_07.webp';
+import material08Pic from '@assets/materials/material_08.webp';
+import material09Pic from '@assets/materials/material_09.webp';
 import Image from 'next/image';
 
 type Props = {
@@ -23,8 +25,10 @@ const getBackgroundClassName = (
 ): string => {
   switch (materialType) {
     case '찬란한 명예의 돌파석':
+    case '경이로운 명예의 돌파석':
       return styles.breakthroughStone;
     case '최상급 오레하 융화 재료':
+    case '상급 오레하 융화 재료':
       return styles.fusion;
     case '태양의 은총':
       return styles.solarGrace;
@@ -75,6 +79,12 @@ const MaterialImage = ({
       break;
     case '골드':
       src = material07Pic;
+      break;
+    case '경이로운 명예의 돌파석':
+      src = material08Pic;
+      break;
+    case '상급 오레하 융화 재료':
+      src = material09Pic;
       break;
   }
 
