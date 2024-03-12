@@ -4,7 +4,7 @@ import styles from './packageItemsZone.module.css';
 import { PackageItem } from '@/app/_type/package';
 import { useState } from 'react';
 import FullSelectItem from '@/app/(defaultLayout)/calculator/package/_components/PackageDetail/FullSelectItem';
-import SelectItem from '@/app/(defaultLayout)/calculator/package/_components/PackageDetail/SelectItem';
+import SelectItems from '@/app/(defaultLayout)/calculator/package/_components/PackageDetail/SelectItems';
 import { produce } from 'immer';
 
 type Props = {
@@ -34,30 +34,33 @@ export default function PackageItemsZone({ packageItems }: Props) {
 
   return (
     <div className={styles.container}>
-      {sortedPackageItems.map((packageItem, index) => {
-        const { count, packedItem } = packageItem;
+      <div>시세</div>
+      <div className={styles.items}>
+        {sortedPackageItems.map((packageItem, index) => {
+          const { count, packedItem } = packageItem;
 
-        if (packedItem.packedType === '모두 받기') {
-          return (
-            <FullSelectItem
-              key={`${packedItem.packedType}-${packedItem.name}`}
-              packedItem={packedItem}
-              count={count}
-            />
-          );
-        }
-        if (packedItem.packedType === '선택') {
-          return (
-            <SelectItem
-              key={`${packedItem.packedType}-${packedItem.name}`}
-              packedItem={packedItem}
-              count={count}
-              selected={optionSelected[index]}
-              handleSelectItem={handleSelectItem(index)}
-            />
-          );
-        }
-      })}
+          if (packedItem.packedType === '모두 받기') {
+            return (
+              <FullSelectItem
+                key={`${packedItem.packedType}-${packedItem.name}`}
+                packedItem={packedItem}
+                count={count}
+              />
+            );
+          }
+          if (packedItem.packedType === '선택') {
+            return (
+              <SelectItems
+                key={`${packedItem.packedType}-${packedItem.name}`}
+                packedItem={packedItem}
+                count={count}
+                selected={optionSelected[index]}
+                handleSelectItem={handleSelectItem(index)}
+              />
+            );
+          }
+        })}
+      </div>
     </div>
   );
 }

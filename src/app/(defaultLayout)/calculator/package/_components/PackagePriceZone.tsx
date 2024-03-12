@@ -19,20 +19,21 @@ export default function PackagePriceZone({
   packagePrice,
   bonusOptions,
 }: Props) {
-  const price = useAtomItemsPrice(packageAtomItems);
+  const { totalPrice } = useAtomItemsPrice(packageAtomItems);
   const n =
     bonusOptions === undefined
       ? 1
       : bonusOptions.bonusCount + bonusOptions.bonus;
   const ratio = Math.floor(
-    ((price * n) / (packagePrice * (bonusOptions?.bonusCount ?? 1))) * 10000,
+    ((totalPrice * n) / (packagePrice * (bonusOptions?.bonusCount ?? 1))) *
+      10000,
   );
 
   return (
     <div>
       <span className={styles.priceZone}>
         <span className={styles.price}>
-          {Math.floor(price * n).toLocaleString()}
+          {Math.floor(totalPrice * n).toLocaleString()}
         </span>
         <span className={styles.priceType}>골드</span>
       </span>

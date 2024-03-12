@@ -2,16 +2,19 @@ import { ItemType } from '@/app/_type/package';
 import { useQueries } from '@tanstack/react-query';
 import { getItemPrice } from '@/app/_apis/market';
 import { fetchCristalPrice } from '@/app/_apis/cristal';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import usePersistStore from '@/app/_hooks/usePersistStore';
 import { useMaterialFilterStore } from '@/app/(defaultLayout)/calculator/package/_stores/useMaterialFilterStore';
 
-export default function useAtomItemsPrice(atomItems: Map<ItemType, number>) {
+export default function useAtomItemsPrice(
+  atomItems: Map<ItemType, number>,
+  useFilter: boolean = true,
+) {
   const materialFilterStore = usePersistStore(
     useMaterialFilterStore,
     (store) => store,
   );
-  const [price, setPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const itemTypes = Array.from(atomItems.keys());
   const results = useQueries({
@@ -41,15 +44,36 @@ export default function useAtomItemsPrice(atomItems: Map<ItemType, number>) {
     }),
   });
 
+  const getPrice = useCallback(
+    (itemType: ItemType) => {
+      const index = itemTypes.findIndex((_itemType) => _itemType === itemType);
+
+      if (index === -1) {
+        return -1;
+      }
+      const result = results[index];
+      if (result.data) {
+        return result.data * (atomItems.get(itemTypes[index]) ?? 0);
+      } else {
+        return -1;
+      }
+    },
+    [atomItems, materialFilterStore, results],
+  );
+
   useEffect(() => {
     let _price = 0;
     results.forEach((result, i) => {
-      if (result.data && materialFilterStore?.[itemTypes[i]]) {
-        _price += result.data * (atomItems.get(itemTypes[i]) ?? 0);
+      if (result.data) {
+        if (!useFilter) {
+          _price += result.data * (atomItems.get(itemTypes[i]) ?? 0);
+        } else if (materialFilterStore?.[itemTypes[i]]) {
+          _price += result.data * (atomItems.get(itemTypes[i]) ?? 0);
+        }
       }
     });
-    setPrice(_price);
-  }, [atomItems, itemTypes, results]);
+    setTotalPrice(_price);
+  }, [atomItems, materialFilterStore, results]);
 
-  return price;
+  return { totalPrice, getPrice };
 }

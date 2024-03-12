@@ -41,8 +41,28 @@ export const 태양의_가호 = new PackedItem.Builder('태양의 가호')
   .addContent(new AtomItem('태양의 가호', 1))
   .build();
 
-export const A_최상급_오레하_융화_재료 = new PackedItem.Builder(
+export const 최상급_오레하_융화_재료 = new PackedItem.Builder(
   '최상급 오레하 융화 재료',
 )
   .addContent(new AtomItem('최상급 오레하 융화 재료', 1))
+  .build();
+
+export const 최상급_수호_선택_주머니 = new PackedItem.Builder(
+  '최상급 수호 선택 주머니',
+)
+  .setPackedType('선택')
+  .addContent(new AtomItem('정제된 수호강석', 100))
+  .build(); // TODO: 수호강석 추가
+
+export const 최상급_파괴_선택_주머니 = new PackedItem.Builder(
+  '최상급 파괴 선택 주머니',
+)
+  .setPackedType('선택')
+  .addContent(new AtomItem('정제된 파괴강석', 100))
+  .build(); // TODO: 파괴강석 추가
+
+export const 보조_재료_상자 = new PackedItem.Builder('보조 재료 상자')
+  .addContent(new AtomItem('태양의 은총', 130))
+  .addContent(new AtomItem('태양의 축복', 40))
+  .addContent(new AtomItem('태양의 가호', 15))
   .build();

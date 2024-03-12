@@ -2,7 +2,6 @@ import styles from './page.module.css';
 import TitledBox from '@/app/_components/TitledBox';
 import { packages } from '@/app/(defaultLayout)/calculator/package/_lib/package';
 import Package from '@/app/(defaultLayout)/calculator/package/_components/Package';
-import Test from '@/app/(defaultLayout)/calculator/package/_components/Test';
 import PrefetchMarketPrice from '@/app/_business/PrefetchMarketPrice';
 import PrefetchCristalPrice from '@/app/_business/PrefetchCristalPrice';
 import NavigationZone from '@/app/(defaultLayout)/_components/NavigationZone';
