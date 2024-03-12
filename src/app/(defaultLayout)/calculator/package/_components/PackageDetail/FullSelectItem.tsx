@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import Material from '@/app/(defaultLayout)/_components/Material';
 import useAtomItemsPrice from '@/app/(defaultLayout)/calculator/package/_hooks/useAtomItemsPrice';
 import { useEffect } from 'react';
+import usePersistStore from '@/app/_hooks/usePersistStore';
+import { useMaterialFilterStore } from '@/app/(defaultLayout)/calculator/package/_stores/useMaterialFilterStore';
 
 type Props = {
   packedItem: PackedItem;
@@ -16,6 +18,7 @@ export default function FullSelectItem({
   count,
   handleChangePrice,
 }: Props) {
+  const filter = usePersistStore(useMaterialFilterStore, (store) => store);
   const items = packedItem.getAtomItems().multiply(count);
   const name = packedItem.name;
 
@@ -49,7 +52,9 @@ export default function FullSelectItem({
             <div className={styles.itemDetail}>
               <div className={styles.detailItemTitle}>{itemType}</div>
               <div className={styles.detailItemCount}>
-                <span>{getPrice(itemType)?.toLocaleString()} G</span>
+                <span className={clsx(!filter?.[itemType] && styles.filtered)}>
+                  {getPrice(itemType)?.toLocaleString()} G
+                </span>
                 <span>x {itemCount.toLocaleString()}</span>
               </div>
             </div>

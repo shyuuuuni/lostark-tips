@@ -69,6 +69,10 @@
     font-size: 1.4rem;
     color: hsl(var(--font-color-default));
 }
+.filtered {
+    text-decoration: line-through;
+    color: hsl(var(--font-color-light));
+}
 @media screen and (min-width: 769px) {
     .selectItem {
         width: 25rem;

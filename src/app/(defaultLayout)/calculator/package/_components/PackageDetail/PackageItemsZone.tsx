@@ -49,7 +49,7 @@ export default function PackageItemsZone({ packageItems }: Props) {
       <div>
         <div className={styles.detailsLabel}>총 가격</div>
         <div className={styles.totalPrice}>
-          {totalPrice === 0 ? ' ' : `${totalPrice.toLocaleString()} G`}
+          {`${totalPrice.toLocaleString()} G`}
         </div>
       </div>
       <div className={styles.items}>

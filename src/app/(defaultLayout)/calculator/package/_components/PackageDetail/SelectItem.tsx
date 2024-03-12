@@ -5,6 +5,9 @@ import Material from '@/app/(defaultLayout)/_components/Material';
 import { AtomItems } from '@/app/_type/package';
 import useAtomItemsPrice from '@/app/(defaultLayout)/calculator/package/_hooks/useAtomItemsPrice';
 import { useEffect } from 'react';
+import { useMaterialFilterStore } from '@/app/(defaultLayout)/calculator/package/_stores/useMaterialFilterStore';
+import usePersistStore from '@/app/_hooks/usePersistStore';
+import clsx from 'clsx';
 
 type Prop = {
   items: AtomItems;
@@ -17,6 +20,7 @@ export default function SelectItem({
   handleChangePrice,
   selected,
 }: Prop) {
+  const filter = usePersistStore(useMaterialFilterStore, (store) => store);
   const { totalPrice, getPrice } = useAtomItemsPrice(items);
 
   useEffect(() => {
@@ -39,7 +43,9 @@ export default function SelectItem({
           <div className={styles.itemDetail}>
             <div className={styles.detailItemTitle}>{itemType}</div>
             <div className={styles.detailItemCount}>
-              <span>{getPrice(itemType).toLocaleString()} G</span>
+              <span className={clsx(!filter?.[itemType] && styles.filtered)}>
+                {getPrice(itemType).toLocaleString()} G
+              </span>
               <span>x {itemCount.toLocaleString()}</span>
             </div>
           </div>
