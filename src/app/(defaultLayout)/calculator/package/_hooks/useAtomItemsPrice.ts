@@ -58,7 +58,7 @@ export default function useAtomItemsPrice(
         return -1;
       }
     },
-    [atomItems, materialFilterStore, results],
+    [atomItems, itemTypes, results],
   );
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function useAtomItemsPrice(
       }
     });
     setTotalPrice(_price);
-  }, [atomItems, materialFilterStore, results]);
+  }, [atomItems, itemTypes, materialFilterStore, useFilter, results]);
 
   return { totalPrice, getPrice };
 }

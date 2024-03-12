@@ -26,7 +26,7 @@ export default function FullSelectItem({
 
   useEffect(() => {
     handleChangePrice(totalPrice);
-  }, [totalPrice]);
+  }, [handleChangePrice, totalPrice]);
 
   return (
     <div className={styles.container}>
