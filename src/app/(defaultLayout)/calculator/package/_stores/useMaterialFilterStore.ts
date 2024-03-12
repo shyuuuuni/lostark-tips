@@ -10,18 +10,18 @@ type MaterialFilterAction = {
 };
 
 const defaultState: MaterialFilterState = {
-  '경이로운 명예의 돌파석': false,
-  '명예의 파편': false,
-  '상급 오레하 융화 재료': false,
-  '정제된 수호강석': false,
-  '정제된 파괴강석': false,
-  '찬란한 명예의 돌파석': false,
-  '최상급 오레하 융화 재료': false,
-  '태양의 가호': false,
-  '태양의 은총': false,
-  '태양의 축복': false,
-  실링: false,
-  크리스탈: false,
+  '경이로운 명예의 돌파석': true,
+  '명예의 파편': true,
+  '상급 오레하 융화 재료': true,
+  '정제된 수호강석': true,
+  '정제된 파괴강석': true,
+  '찬란한 명예의 돌파석': true,
+  '최상급 오레하 융화 재료': true,
+  '태양의 가호': true,
+  '태양의 은총': true,
+  '태양의 축복': true,
+  실링: true,
+  크리스탈: true,
 };
 
 export const useMaterialFilterStore = create<
