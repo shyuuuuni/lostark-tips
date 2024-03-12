@@ -12,6 +12,9 @@ type Props = {
 };
 
 export default function PackageItemsZone({ packageItems }: Props) {
+  const [prices, setPrices] = useState<number[]>(
+    Array.from({ length: packageItems.length }, () => 0),
+  );
   const [optionSelected, setOptionSelected] = useState<number[]>(
     Array.from({ length: packageItems.length }, () => 0),
   );
@@ -31,10 +34,24 @@ export default function PackageItemsZone({ packageItems }: Props) {
       }),
     );
   };
+  const handleChangePrice = (optionIndex: number) => (price: number) => {
+    setPrices(
+      produce((draft) => {
+        draft[optionIndex] = price;
+      }),
+    );
+  };
+
+  const totalPrice = prices.reduce((acc, cur) => acc + cur, 0);
 
   return (
     <div className={styles.container}>
-      <div>시세</div>
+      <div>
+        <div className={styles.detailsLabel}>총 가격</div>
+        <div className={styles.totalPrice}>
+          {totalPrice === 0 ? ' ' : `${totalPrice.toLocaleString()} G`}
+        </div>
+      </div>
       <div className={styles.items}>
         {sortedPackageItems.map((packageItem, index) => {
           const { count, packedItem } = packageItem;
@@ -45,6 +62,7 @@ export default function PackageItemsZone({ packageItems }: Props) {
                 key={`${packedItem.packedType}-${packedItem.name}`}
                 packedItem={packedItem}
                 count={count}
+                handleChangePrice={handleChangePrice(index)}
               />
             );
           }
@@ -56,6 +74,7 @@ export default function PackageItemsZone({ packageItems }: Props) {
                 count={count}
                 selected={optionSelected[index]}
                 handleSelectItem={handleSelectItem(index)}
+                handleChangePrice={handleChangePrice(index)}
               />
             );
           }

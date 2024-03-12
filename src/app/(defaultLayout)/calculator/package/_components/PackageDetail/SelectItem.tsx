@@ -4,13 +4,26 @@ import styles from '@/app/(defaultLayout)/calculator/package/_components/Package
 import Material from '@/app/(defaultLayout)/_components/Material';
 import { AtomItems } from '@/app/_type/package';
 import useAtomItemsPrice from '@/app/(defaultLayout)/calculator/package/_hooks/useAtomItemsPrice';
+import { useEffect } from 'react';
 
 type Prop = {
   items: AtomItems;
+  handleChangePrice: (price: number) => void;
+  selected: boolean;
 };
 
-export default function SelectItem({ items }: Prop) {
-  const { getPrice } = useAtomItemsPrice(items);
+export default function SelectItem({
+  items,
+  handleChangePrice,
+  selected,
+}: Prop) {
+  const { totalPrice, getPrice } = useAtomItemsPrice(items);
+
+  useEffect(() => {
+    if (selected) {
+      handleChangePrice(totalPrice);
+    }
+  }, [selected, handleChangePrice, totalPrice]);
 
   return (
     <>

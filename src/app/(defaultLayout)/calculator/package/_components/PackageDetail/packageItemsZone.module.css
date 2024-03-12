@@ -14,9 +14,19 @@
     padding: 1rem;
     width: 100%;
 }
+.detailsLabel {
+    background-color: #34434C;
+    border-radius: 1000px;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    width: fit-content;
+}
+.totalPrice {
+    font-size: 2rem;
+    color: hsl(var(--orange), 0.8);
+}
 @media screen and (min-width: 769px) {
     .container {
-        max-width: 80rem;
+        max-width: 90rem;
         padding: 1.8rem;
     }
 }

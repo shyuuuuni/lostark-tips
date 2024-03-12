@@ -3,17 +3,27 @@ import styles from '@/app/(defaultLayout)/calculator/package/_components/Package
 import clsx from 'clsx';
 import Material from '@/app/(defaultLayout)/_components/Material';
 import useAtomItemsPrice from '@/app/(defaultLayout)/calculator/package/_hooks/useAtomItemsPrice';
+import { useEffect } from 'react';
 
 type Props = {
   packedItem: PackedItem;
   count: number;
+  handleChangePrice: (price: number) => void;
 };
 
-export default function FullSelectItem({ packedItem, count }: Props) {
+export default function FullSelectItem({
+  packedItem,
+  count,
+  handleChangePrice,
+}: Props) {
   const items = packedItem.getAtomItems().multiply(count);
   const name = packedItem.name;
 
-  const { getPrice } = useAtomItemsPrice(items);
+  const { totalPrice, getPrice } = useAtomItemsPrice(items);
+
+  useEffect(() => {
+    handleChangePrice(totalPrice);
+  }, [totalPrice]);
 
   return (
     <div className={styles.container}>

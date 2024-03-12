@@ -8,6 +8,7 @@ type Props = {
   count: number;
   selected: number;
   handleSelectItem: (nextSelected: number) => void;
+  handleChangePrice: (price: number) => void;
 };
 
 export default function SelectItems({
@@ -15,6 +16,7 @@ export default function SelectItems({
   count,
   selected,
   handleSelectItem,
+  handleChangePrice,
 }: Props) {
   const selectedItems = packedItem
     .getSelectedAtomItems()
@@ -39,7 +41,11 @@ export default function SelectItems({
             )}
             onClick={() => handleSelectItem(index)}
           >
-            <SelectItem items={_selectedItems} />
+            <SelectItem
+              items={_selectedItems}
+              selected={selected === index}
+              handleChangePrice={handleChangePrice}
+            />
           </div>
         ))}
       </div>
