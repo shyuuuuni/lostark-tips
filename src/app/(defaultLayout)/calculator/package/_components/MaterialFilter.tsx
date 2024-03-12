@@ -5,6 +5,10 @@ import usePersistStore from '@/app/_hooks/usePersistStore';
 import { useMaterialFilterStore } from '@/app/(defaultLayout)/calculator/package/_stores/useMaterialFilterStore';
 import { ItemType } from '@/app/_type/package';
 import clsx from 'clsx';
+import withTooltipPortal from '@/app/_hocs/withTooltipPortal';
+import { Tooltip } from 'react-tooltip';
+
+const PortalTooltip = withTooltipPortal(Tooltip);
 
 const itemTypes: ItemType[] = [
   '경이로운 명예의 돌파석',
@@ -26,7 +30,9 @@ export default function MaterialFilter() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>대상 재료 목록</div>
+      <div className={styles.title} data-tooltip-id="price-information">
+        대상 재료 목록
+      </div>
       <ul className={styles.filterItems}>
         {itemTypes.map((itemType) => (
           <li
@@ -41,6 +47,16 @@ export default function MaterialFilter() {
           </li>
         ))}
       </ul>
+      <PortalTooltip id="price-information" place={'bottom-start'}>
+        <div>
+          <h3>기준 시세</h3>
+          <div>모든 재료의 시세는 전일 경매장 시세를 기준으로 계산합니다.</div>
+          <div>
+            단, 실링의 경우 골드로 구매하는 '비밀 금고' 기준으로 계산합니다.
+            (추후 개선 예정)
+          </div>
+        </div>
+      </PortalTooltip>
     </div>
   );
 }
