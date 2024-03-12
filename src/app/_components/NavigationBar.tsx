@@ -44,7 +44,7 @@ export default function NavigationBar() {
           href={'/calculator'}
           className={clsx(segment === 'calculator' && styles.clicked)}
         >
-          효율 계산기
+          계산기
         </Link>
       </div>
       <div className={styles.rightNavZone}>

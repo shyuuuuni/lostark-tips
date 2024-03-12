@@ -12,17 +12,19 @@ import {
   getAuxiliaryMaterial,
   getRefiningMaterials,
 } from '@/app/(defaultLayout)/simulator/_lib/materials';
-import { EquipmentType } from '@/type/equipment';
+import { EquipmentType } from '@/app/_type/equipment';
 import {
   AdvancedRefiningAuxiliaryRequirements,
+  AdvancedRefiningCost,
   AdvancedRefiningLevel,
+  AdvancedRefiningMaterial,
   AdvancedRefiningRequirements,
   AdvancedRefiningSimulationHistory,
   AncestorProtection,
   AncestorProtectionCount,
   UsingAuxiliary,
-} from '@/type/advancedRefining';
-import { AuxiliaryMaterial, Cost, Material } from '@/type/material';
+} from '@/app/_type/advancedRefining';
+import { AuxiliaryMaterial } from '@/app/_type/material';
 
 type AdvancedRefiningSimulatorState = {
   equipmentType: EquipmentType;
@@ -63,7 +65,7 @@ const defaultState: AdvancedRefiningSimulatorState = {
     ['정제된 파괴강석']: 0,
     ['정제된 수호강석']: 0,
     ['찬란한 명예의 돌파석']: 0,
-    ['최상급 오레하 융화재료']: 0,
+    ['최상급 오레하 융화 재료']: 0,
     ['골드']: 0,
     ['실링']: 0,
     ['명예의 파편']: 0,
@@ -171,7 +173,9 @@ export const useAdvancedRefiningSimulatorStore = create<
             7) as AncestorProtectionCount;
 
           for (const [material, count] of Object.entries(refiningMaterials)) {
-            state.accumulatedCost[material as Material | Cost] += count;
+            state.accumulatedCost[
+              material as AdvancedRefiningMaterial | AdvancedRefiningCost
+            ] += count;
           }
           for (const [auxiliary, isUsed] of Object.entries(usingAuxiliary)) {
             if (isUsed) {

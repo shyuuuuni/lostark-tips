@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: hsl(var(--ui-color-background-070));
+    padding: 1rem;
+    width: 100%;
+}
+.detailsLabel {
+    background-color: #34434C;
+    border-radius: 1000px;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    width: fit-content;
+}
+.totalPrice {
+    font-size: 2rem;
+    color: hsl(var(--orange), 0.8);
+}
+@media screen and (min-width: 769px) {
+    .container {
+        max-width: 90rem;
+        padding: 1.8rem;
+    }
+}
+@media screen and (max-width: 768px) {
+}

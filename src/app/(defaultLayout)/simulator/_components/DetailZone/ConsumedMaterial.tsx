@@ -1,24 +1,17 @@
 'use client';
 
 import styles from '@/app/(defaultLayout)/simulator/_components/DetailZone/consumedMaterial.module.css';
-import { AuxiliaryMaterial, Material as MaterialType } from '@/type/material';
-import Material from '@/app/(defaultLayout)/simulator/_components/Material';
-import { getItemPrice } from '@/app/_apis/market';
-import { useQuery } from '@tanstack/react-query';
+import Material from '@/app/(defaultLayout)/_components/Material';
+import { SalableItem } from '@/app/_type/market';
+import useMaterialPrice from '@/app/_hooks/useMaterialPrice';
 
 type Props = {
-  materialType: MaterialType | AuxiliaryMaterial | '명예의 파편';
+  materialType: SalableItem;
   count: number;
 };
 
 export default function ConsumedMaterial({ materialType, count }: Props) {
-  const { data } = useQuery<number>({
-    queryFn: () => getItemPrice(materialType),
-    queryKey: ['market', 'price', materialType],
-    staleTime: 60 * 60 * 1000, // 1시간
-    gcTime: Infinity,
-  });
-  const price = materialType === '명예의 파편' ? (data ?? 0) / 1500 : data ?? 0;
+  const price = useMaterialPrice(materialType);
 
   return (
     <div className={styles.container}>

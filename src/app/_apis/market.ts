@@ -1,6 +1,7 @@
-import { MarketItemStats } from '@/type/market';
+import { MarketItemStats } from '@/app/_type/market';
 import { itemIds } from '@/app/_lib/market';
-import { AuxiliaryMaterial, Material } from '@/type/material';
+import { ItemType } from '@/app/_type/package';
+import { fetchCristalPrice } from '@/app/_apis/cristal';
 
 export const fetchMarketItem = async (itemId: string) => {
   const res = await fetch(
@@ -19,11 +20,21 @@ export const fetchMarketItem = async (itemId: string) => {
   return data[0];
 };
 
-export const getItemPrice = async (
-  itemName: Material | AuxiliaryMaterial | '명예의 파편',
-) => {
+export const getItemPrice = async (itemName: ItemType) => {
+  if (itemName === '실링') {
+    return 0.01;
+  }
+  if (itemName === '크리스탈') {
+    const price = await fetchCristalPrice();
+    return price;
+  }
   const itemId = itemIds[itemName];
   const itemStats = await fetchMarketItem(itemId);
+
+  // 명예의 파편 주머니 (대)
+  if (itemName === '명예의 파편') {
+    return itemStats.Stats[0].AvgPrice / itemStats.BundleCount / 1500;
+  }
 
   return itemStats.Stats[0].AvgPrice / itemStats.BundleCount;
 };

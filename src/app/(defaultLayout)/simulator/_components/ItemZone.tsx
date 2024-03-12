@@ -10,7 +10,7 @@ import armorTopPic from '@assets/equipments/armor_top.png';
 import armorPantsPic from '@assets/equipments/armor_pants.png';
 import armorGlovesPic from '@assets/equipments/armor_gloves.png';
 import { useAdvancedRefiningSimulatorStore } from '@/app/(defaultLayout)/simulator/_stores/useAdvancedRefiningSimulatorStore';
-import { EquipmentType } from '@/type/equipment';
+import { EquipmentType } from '@/app/_type/equipment';
 import { getAdvancedRefiningStatIncrement } from '@/app/(defaultLayout)/simulator/_lib/advancedRefining';
 
 const equipments: {

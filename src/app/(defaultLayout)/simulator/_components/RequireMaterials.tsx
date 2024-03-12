@@ -7,7 +7,7 @@ import {
   isArmor,
   isWeapon,
 } from '@/app/(defaultLayout)/simulator/_lib/equipment';
-import Material from '@/app/(defaultLayout)/simulator/_components/Material';
+import Material from '@/app/(defaultLayout)/_components/Material';
 
 export default function RequireMaterials() {
   const [equipmentType, targetLevel, isFree] =
@@ -42,8 +42,8 @@ export default function RequireMaterials() {
           <div>{materials['찬란한 명예의 돌파석']}</div>
         </div>
         <div className={styles.materialZone}>
-          <Material materialType={'최상급 오레하 융화재료'} />
-          <div>{materials['최상급 오레하 융화재료']}</div>
+          <Material materialType={'최상급 오레하 융화 재료'} />
+          <div>{materials['최상급 오레하 융화 재료']}</div>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
-import { EquipmentType, StatType } from '@/type/equipment';
-import { AdvancedRefiningLevel } from '@/type/advancedRefining';
+import { EquipmentType, StatType } from '@/app/_type/equipment';
+import { AdvancedRefiningLevel } from '@/app/_type/advancedRefining';
 
 type StatIncrement = [StatType, number];
 type StatIncrements = {
