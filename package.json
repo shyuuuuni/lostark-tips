@@ -1,5 +1,5 @@
 {
-  "name": "lostark-tools",
+  "name": "lostark-tips",
   "version": "2.0.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=8.0.0"
   },
   "dependencies": {
     "@next/third-parties": "^14.1.1",
